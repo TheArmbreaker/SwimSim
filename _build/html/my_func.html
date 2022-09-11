@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Functions &#8212; Swim Athlete Simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="My Simulation Functions" href="my_simfunc.html" />
+    <link rel="prev" title="My Classes" href="my_classes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Swim Athlete Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Webscrapping.html">
+   Acquiring Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Top100_Lists.html">
+   Top 100 Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Performance.html">
+   Performance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Simulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part1.html">
+   Intro and Sample Simulation
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Simulation_part2.html">
+   Time Complexity in Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://math.stackexchange.com/questions/4518903/allowed-to-multiply-probabilities-that-way-single-probabilities-for-a-simulta">
+     My Question on math.stackexchange.com
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part3.html">
+   Best Athlete Overall - Simulation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  py-Files
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_classes.html">
+   My Classes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   My Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_simfunc.html">
+   My Simulation Functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/my_func.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/my_func.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>My Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="my-functions">
+<h1>My Functions<a class="headerlink" href="#my-functions" title="Permalink to this headline">#</a></h1>
+<p>This notebook supports that content of the <a class="reference external" href="http://myfunc.py">myfunc.py</a> File can be shown in this Jupyter Book.</p>
+<p>Below presented code is in the file <a class="reference external" href="http://myfunc.py">myfunc.py</a> and gets imported in other notebooks via:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from myfunc.py import *
+</pre></div>
+</div>
+<p>It is a selection of codes that might be useful to use in more than one Notebook. Very specific functions are inside of the respective notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="k">def</span> <span class="nf">connectDatabase</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes path to json file</span>
+<span class="sd">    loads config to connect to SQL database</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">readSQL</span><span class="p">(</span><span class="n">table</span><span class="p">,</span><span class="n">engine</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes SQL-table, and engine object from sqlalchemy</span>
+<span class="sd">    try to drop SQL-index-column, if any</span>
+<span class="sd">    returns pandas dataframe</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">,</span> <span class="n">conn</span><span class="o">.</span><span class="n">begin</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">faculty</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes value</span>
+<span class="sd">    returns faculty of value</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">erg</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">erg</span> <span class="o">=</span> <span class="n">erg</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">erg</span>
+
+<span class="k">def</span> <span class="nf">count_combinations_without_replacement</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes two values</span>
+<span class="sd">    value1: value</span>
+<span class="sd">    value2: possible combinations</span>
+<span class="sd">    returns amount of possible combinations</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">faculty</span><span class="p">(</span><span class="n">value1</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">faculty</span><span class="p">(</span><span class="n">value1</span><span class="o">-</span><span class="n">value2</span><span class="p">))</span><span class="o">*</span><span class="n">faculty</span><span class="p">(</span><span class="n">value2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">get_events_for_season</span><span class="p">(</span><span class="n">season</span><span class="p">,</span><span class="n">mycol</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes a year/season as int and an object from pymongo referencing to a collection, an optional id.</span>
+<span class="sd">    Returns a dictionary with event types as key and the sum of occurance in mongoDB database for given season.</span>
+
+<span class="sd">    This query might be optimized with count_documents, which I just learned to the end of the project.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">mycol</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="n">season</span><span class="p">},{</span><span class="s1">&#39;_id&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}):</span>
+        <span class="n">List</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">List</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">List</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">myDict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">myDict</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">myDict</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">myDict</span>
+
+<span class="k">def</span> <span class="nf">create_dataframe_for_season</span><span class="p">(</span><span class="n">season</span><span class="p">,</span><span class="n">mycol</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes a year/season as int and an collection object referencing to a mongoDB database.</span>
+<span class="sd">    Returns a pandas dataframe with amount of events per season.</span>
+
+<span class="sd">    Dataframe object is generated with function call of get_events().</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">get_events_for_season</span><span class="p">(</span><span class="n">season</span><span class="p">,</span><span class="n">mycol</span><span class="p">),</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;event&#39;</span><span class="p">})</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">season</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">get_events_two</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">season</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes the pymongo object referencing to a collection, the id as string and season as int.</span>
+<span class="sd">    Returns a dictionary with id, season as taken and a dictionary of events.</span>
+
+<span class="sd">    Before return the events with an &quot;Lap&quot; at the end are added. For example in the case an athlete swam 100m Freestyle Lap but not 100m Freestyle.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">query1</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="n">season</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="nb">id</span>
+    <span class="p">}</span>
+    <span class="n">query2</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;_id&#39;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+
+    <span class="n">myList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">notList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;season&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query1</span><span class="p">,</span><span class="n">query2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; Lap&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">notList</span><span class="p">:</span>
+                <span class="n">myList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; Lap&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="nb">id</span><span class="p">,</span><span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="n">season</span><span class="p">,</span><span class="s1">&#39;events&#39;</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">myList</span><span class="p">))}</span>
+
+<span class="k">def</span> <span class="nf">get_min_max_Date</span><span class="p">(</span><span class="n">events</span><span class="p">,</span><span class="n">season</span><span class="p">,</span><span class="n">mycol</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes a list of events, a year/string as int and a pymongo object referencing to a collection.</span>
+<span class="sd">    Returns a dictionary with min and max date as values. Keys are min and max.</span>
+
+<span class="sd">    Looks up the min and max values from the mongoDB collection and stores it in a list.</span>
+<span class="sd">    Iterates over the list and stores min/max in outputDict. (could be optimized with numpy)</span>
+
+<span class="sd">    Except TypeError exists to avoid NoneTypes when not existing events are provided as input.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;$unwind&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;$match&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="n">season</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$project&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;Datum&#39;</span><span class="p">:{</span> <span class="s1">&#39;$toDate&#39;</span><span class="p">:</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Date&#39;</span><span class="o">%</span><span class="n">event</span>
+                <span class="p">}</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$group&#39;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;minDatum&#39;</span><span class="p">:{</span><span class="s1">&#39;$min&#39;</span><span class="p">:</span><span class="s1">&#39;$Datum&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;maxDatum&#39;</span><span class="p">:{</span><span class="s1">&#39;$max&#39;</span><span class="p">:</span><span class="s1">&#39;$Datum&#39;</span><span class="p">}</span>
+            <span class="p">}</span>
+            <span class="p">}</span>    
+        <span class="p">]</span>
+        <span class="n">myList</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mycol</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)))</span>
+    
+    <span class="n">outDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">dict</span> <span class="o">=</span> <span class="n">myList</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;minDatum&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">outDict</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]:</span>
+                <span class="n">outDict</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;minDatum&#39;</span><span class="p">]</span> 
+            <span class="k">if</span> <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;maxDatum&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">outDict</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]:</span>
+                <span class="n">outDict</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="s1">&#39;maxDatum&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">pass</span> 
+    
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">outDict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Transforms the value in the output dict to isoformat and removes the letter T at the end of value, which occured for a view athletes.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">outDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">outDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">outDict</span>
+
+<span class="k">def</span> <span class="nf">get_times_and_points</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;$unwind&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;$match&#39;</span><span class="p">:{</span>
+            <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.Course&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span><span class="n">course</span>
+        <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                    <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                            <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Time&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                            <span class="s1">&#39;M&#39;</span>
+                        <span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="p">}},</span>
+                <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                    <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span>
+                                <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                    <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                    <span class="mi">0</span>
+                                <span class="p">]</span>
+                            <span class="p">},</span>
+                            <span class="s1">&#39;:&#39;</span>
+                        <span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="p">}},</span>
+                <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                    <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:{</span>
+                        <span class="s1">&#39;$add&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span><span class="s1">&#39;$multiply&#39;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s1">&#39;$ifNull&#39;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                                <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                                <span class="p">}},</span><span class="mi">0</span><span class="p">]}</span>                            
+                                <span class="p">,</span><span class="mi">60</span><span class="p">]},</span>
+                            <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                                <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                    <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                    <span class="o">-</span><span class="mi">1</span>
+                                <span class="p">]</span>
+                            <span class="p">}</span>
+                            <span class="p">}</span>    
+                            <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">}},</span>
+                <span class="p">{</span><span class="s1">&#39;$project&#39;</span><span class="p">:{</span>
+                    <span class="s1">&#39;_id&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                    <span class="s1">&#39;points&#39;</span><span class="p">:{</span><span class="s1">&#39;$toInt&#39;</span><span class="p">:</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Points&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">}</span>
+                <span class="p">}}</span>
+    <span class="p">]</span>
+
+    <span class="n">myList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Transformation so the dataframe can be ploted.</span>
+<span class="sd">        Maybe optimize with lambda function on dataframe.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_avg_times</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span><span class="n">course</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">season</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes an pymongo object referencing to a collection, a course as string, an event as string, an id as string and a season as int.</span>
+<span class="sd">    Returns collection object with id, season, event, course and average time.</span>
+
+<span class="sd">    Some scrapped time values have an m attached at the end. This gets &quot;splitted&quot; away.</span>
+<span class="sd">    Some times are with minutes and colon before the seconds. In order to transform the minutes into seconds the time filed is splitted at the colon.</span>
+<span class="sd">    This provides an array which is addressed via $arrayElemAt and an index.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;$unwind&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;$match&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="nb">id</span><span class="p">,</span>
+                <span class="s1">&#39;season&#39;</span><span class="p">:</span><span class="n">season</span><span class="p">,</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.Course&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span><span class="n">course</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                        <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Time&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                        <span class="s1">&#39;M&#39;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                <span class="mi">0</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="s1">&#39;:&#39;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:{</span>
+                    <span class="s1">&#39;$add&#39;</span><span class="p">:[</span>
+                        <span class="p">{</span><span class="s1">&#39;$multiply&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span><span class="s1">&#39;$ifNull&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                            <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                            <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                            <span class="p">}},</span><span class="mi">0</span><span class="p">]}</span>                            
+                            <span class="p">,</span><span class="mi">60</span><span class="p">]},</span>
+                        <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                <span class="o">-</span><span class="mi">1</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                        <span class="p">}</span>    
+                        <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$group&#39;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="s1">&#39;$id&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;season&#39;</span><span class="p">:{</span><span class="s1">&#39;$first&#39;</span><span class="p">:</span><span class="s1">&#39;$season&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$first&#39;</span><span class="p">:</span><span class="n">event</span><span class="p">},</span>
+                <span class="s1">&#39;course&#39;</span><span class="p">:{</span><span class="s1">&#39;$first&#39;</span><span class="p">:</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Course&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+                <span class="s1">&#39;avgTime&#39;</span><span class="p">:{</span><span class="s1">&#39;$avg&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">}</span>
+            <span class="p">}</span>
+            <span class="p">}</span> 
+        <span class="p">]</span>
+    <span class="k">return</span> <span class="n">collection</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_array_times</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span><span class="n">course</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes an pymongo object referencing to a collection, a course as string, an event as string and an id as string.</span>
+<span class="sd">    Returns numpy array of float values representing time variable in seconds.</span>
+
+<span class="sd">    Some scrapped time values have an m attached at the end. This gets &quot;splitted&quot; away.</span>
+<span class="sd">    Some times are with minutes and colon before the seconds. In order to transform the minutes into seconds the time filed is splitted at the colon.</span>
+<span class="sd">    This provides an array which is addressed via $arrayElemAt and an index.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;$unwind&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;$match&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="nb">id</span><span class="p">,</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.Course&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span><span class="n">course</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                        <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Time&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                        <span class="s1">&#39;M&#39;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;$split&#39;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewFieldM&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                <span class="mi">0</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="s1">&#39;:&#39;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$addFields&#39;</span><span class="p">:{</span>
+                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">:{</span>
+                    <span class="s1">&#39;$add&#39;</span><span class="p">:[</span>
+                        <span class="p">{</span><span class="s1">&#39;$multiply&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span><span class="s1">&#39;$ifNull&#39;</span><span class="p">:[</span>
+                            <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                            <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                            <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                            <span class="p">}},</span><span class="mi">0</span><span class="p">]}</span>                            
+                            <span class="p">,</span><span class="mi">60</span><span class="p">]},</span>
+                        <span class="p">{</span><span class="s1">&#39;$toDecimal&#39;</span><span class="p">:{</span>
+                            <span class="s1">&#39;$arrayElemAt&#39;</span><span class="p">:[</span>
+                                <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">,</span>
+                                <span class="o">-</span><span class="mi">1</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                        <span class="p">}</span>    
+                        <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}},</span>
+            <span class="p">{</span><span class="s1">&#39;$group&#39;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="s1">&#39;$id&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$first&#39;</span><span class="p">:</span><span class="n">event</span><span class="p">},</span>
+                <span class="s1">&#39;course&#39;</span><span class="p">:{</span><span class="s1">&#39;$first&#39;</span><span class="p">:</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.Course&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">},</span>
+                <span class="s1">&#39;arrayTime&#39;</span><span class="p">:{</span><span class="s1">&#39;$push&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">%s</span><span class="s1">.NewField2&#39;</span><span class="o">%</span><span class="n">event</span><span class="p">}</span>
+            <span class="p">}</span>
+            <span class="p">}</span> 
+        <span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;arrayTime&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="my_classes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">My Classes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="my_simfunc.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">My Simulation Functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Markus Armbrecht<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

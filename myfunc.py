@@ -1,0 +1,431 @@
+import json
+import pandas as pd
+import numpy as np
+import datetime
+import copy
+
+def connectDatabase(file):
+    '''
+    takes path to json file
+    loads config to connect to SQL database
+    '''
+    with open(file) as f:
+        return json.load(f)
+
+def readSQL(table,engine):
+    '''
+    takes SQL-table, and engine object from sqlalchemy
+    try to drop SQL-index-column, if any
+    returns pandas dataframe
+    '''
+    with engine.connect() as conn, conn.begin():
+        try:
+            return pd.read_sql_table(table,conn).drop(['index'],axis=1)
+        except:
+            return pd.read_sql_table(table,conn)
+
+def faculty(x):
+    '''
+    takes value
+    returns faculty of value
+    '''
+    erg = 1
+    for i in range(x):
+        erg = erg*(i+1)
+    return erg
+
+def count_combinations_without_replacement(value1,value2):
+    '''
+    takes two values
+    value1: value
+    value2: possible combinations
+    returns amount of possible combinations
+    '''
+    return faculty(value1)/((faculty(value1-value2))*faculty(value2))
+
+def get_events_for_season(season,mycol):
+    '''
+    Takes a year/season as int and an object from pymongo referencing to a collection, an optional id.
+    Returns a dictionary with event types as key and the sum of occurance in mongoDB database for given season.
+
+    This query might be optimized with count_documents, which I just learned during the project.
+    '''
+    myDict = {}
+
+    for doc in mycol.find({'season':season},{'_id':0,'id':0,'season':0}):
+        List = list(doc.keys())
+        while len(List)>0:
+            event = List.pop(-1)
+            if event not in myDict.keys():
+                myDict[event]=1
+            else:
+                myDict[event]+=1
+    return myDict
+
+def create_dataframe_for_season(season,mycol):
+    '''
+    Takes a year/season as int and an collection object referencing to a mongoDB database.
+    Returns a pandas dataframe with amount of events per season.
+
+    Dataframe object is generated with function call of get_events().
+    '''
+    df = pd.DataFrame.from_dict(get_events_for_season(season,mycol),orient='index',columns=['times']).reset_index().rename(columns={'index':'event'})
+    df['season'] = season
+    return df
+
+def get_events_two(collection,id,season):
+    '''
+    Takes the pymongo object referencing to a collection, the id as string and season as int.
+    Returns a dictionary with id, season as taken and a dictionary of events.
+
+    Before return the events with an "Lap" at the end are added. For example in the case an athlete swam 100m Freestyle Lap but not 100m Freestyle.
+    '''
+    query1 = {
+        'season':season,
+        'id':id
+    }
+    query2 = {
+        '_id':0
+    }
+
+    myList = []
+    notList = ['id','season']
+    for doc in collection.find(query1,query2):
+        for i in doc.keys():
+            if i.split(' Lap')[0] not in notList:
+                myList.append(i.split(' Lap')[0])
+    
+    return {'id':id,'season':season,'events':list(set(myList))}
+
+def get_min_max_Date(events,season,mycol):
+    '''
+    Takes a list of events, a year/string as int and a pymongo object referencing to a collection.
+    Returns a dictionary with min and max date as values. Keys are min and max.
+
+    Looks up the min and max values from the mongoDB collection and stores it in a list.
+    Iterates over the list and stores min/max in outputDict. (could be optimized with numpy)
+
+    Except TypeError exists to avoid NoneTypes when not existing events are provided as input.
+    '''
+    myList = []
+    for event in events:
+        pipeline = [
+            {'$unwind': '$%s'%event},
+            {'$match':{
+                'season':season
+            }},
+            {'$project':{
+                'Datum':{ '$toDate':'$%s.Date'%event
+                }
+            }},
+            {'$group':
+            {
+                '_id': None,
+                'minDatum':{'$min':'$Datum'},
+                'maxDatum':{'$max':'$Datum'}
+            }
+            }    
+        ]
+        myList.extend(list(mycol.aggregate(pipeline)))
+    
+    outDict = {'min': datetime.datetime.now(),'max': datetime.datetime(1900,1,1)}
+    while len(myList)>0:
+        dict = myList.pop(-1)
+        try:
+            if dict['minDatum'] < outDict['min']:
+                outDict['min'] = dict['minDatum'] 
+            if dict['maxDatum'] > outDict['max']:
+                outDict['max'] = dict['maxDatum']
+        except TypeError:
+            pass 
+    
+    for key in outDict.keys():
+        '''
+        Transforms the value in the output dict to isoformat and removes the letter T at the end of value, which occured for a view athletes.
+        '''
+        outDict[key] = outDict[key].isoformat().split('T')[0]
+
+    return outDict
+
+def get_times_and_points(collection, event, course):
+    pipeline = [
+        {'$unwind': '$%s'%event},
+        {'$match':{
+            '%s.Course'%event:course
+        }},
+        {'$addFields':{
+                    '%s.NewFieldM'%event: {
+                        '$split':[
+                            '$%s.Time'%event,
+                            'M'
+                        ]
+                    },
+                }},
+                {'$addFields':{
+                    '%s.NewField'%event: {
+                        '$split':[
+                            {
+                                '$arrayElemAt':[
+                                    '$%s.NewFieldM'%event,
+                                    0
+                                ]
+                            },
+                            ':'
+                        ]
+                    },
+                }},
+                {'$addFields':{
+                    '%s.NewField2'%event:{
+                        '$add':[
+                            {'$multiply':[
+                                {'$ifNull':[
+                                {'$toDecimal':{
+                                '$arrayElemAt':[
+                                '$%s.NewField'%event,
+                                -2]
+                                }},0]}                            
+                                ,60]},
+                            {'$toDecimal':{
+                                '$arrayElemAt':[
+                                    '$%s.NewField'%event,
+                                    -1
+                                ]
+                            }
+                            }    
+                            ]
+                    }
+                }},
+                {'$project':{
+                    '_id':0,
+                    'id':1,
+                    'time':'$%s.NewField2'%event,
+                    'points':{'$toInt':'$%s.Points'%event}
+                }}
+    ]
+
+    myList = list(collection.aggregate(pipeline))
+    
+    for i in myList:
+        '''
+        Transformation so the dataframe can be ploted.
+        Maybe optimize with lambda function on dataframe.
+        '''
+        i['time'] = float(str(i['time']))
+
+    return pd.DataFrame.from_dict(myList)
+
+def get_avg_times(collection,course,event,id,season):
+    '''
+    Takes an pymongo object referencing to a collection, a course as string, an event as string, an id as string and a season as int.
+    Returns collection object with id, season, event, course and average time.
+
+    Some scrapped time values have an m attached at the end. This gets "splitted" away.
+    Some times are with minutes and colon before the seconds. In order to transform the minutes into seconds the time filed is splitted at the colon.
+    This provides an array which is addressed via $arrayElemAt and an index.
+    '''
+    pipeline = [
+            {'$unwind': '$%s'%event},
+            {'$match':{
+                'id':id,
+                'season':season,
+                '%s.Course'%event:course
+            }},
+            {'$addFields':{
+                '%s.NewFieldM'%event: {
+                    '$split':[
+                        '$%s.Time'%event,
+                        'M'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField'%event: {
+                    '$split':[
+                        {
+                            '$arrayElemAt':[
+                                '$%s.NewFieldM'%event,
+                                0
+                            ]
+                        },
+                        ':'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField2'%event:{
+                    '$add':[
+                        {'$multiply':[
+                            {'$ifNull':[
+                            {'$toDecimal':{
+                            '$arrayElemAt':[
+                            '$%s.NewField'%event,
+                            -2]
+                            }},0]}                            
+                            ,60]},
+                        {'$toDecimal':{
+                            '$arrayElemAt':[
+                                '$%s.NewField'%event,
+                                -1
+                            ]
+                        }
+                        }    
+                        ]
+                }
+            }},
+            {'$group':
+            {
+                '_id': '$id',
+                'season':{'$first':'$season'},
+                'event': {'$first':event},
+                'course':{'$first':'$%s.Course'%event},
+                'avgTime':{'$avg': '$%s.NewField2'%event}
+            }
+            } 
+        ]
+    return collection.aggregate(pipeline)
+
+def get_array_times(collection,course,event,id):
+    '''
+    Takes an pymongo object referencing to a collection, a course as string, an event as string and an id as string.
+    Returns numpy array of float values representing time variable in seconds.
+
+    Some scrapped time values have an m attached at the end. This gets "splitted" away.
+    Some times are with minutes and colon before the seconds. In order to transform the minutes into seconds the time filed is splitted at the colon.
+    This provides an array which is addressed via $arrayElemAt and an index.
+    '''
+    pipeline = [
+            {'$unwind': '$%s'%event},
+            {'$match':{
+                'id':id,
+                '%s.Course'%event:course
+            }},
+            {'$addFields':{
+                '%s.NewFieldM'%event: {
+                    '$split':[
+                        '$%s.Time'%event,
+                        'M'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField'%event: {
+                    '$split':[
+                        {
+                            '$arrayElemAt':[
+                                '$%s.NewFieldM'%event,
+                                0
+                            ]
+                        },
+                        ':'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField2'%event:{
+                    '$add':[
+                        {'$multiply':[
+                            {'$ifNull':[
+                            {'$toDecimal':{
+                            '$arrayElemAt':[
+                            '$%s.NewField'%event,
+                            -2]
+                            }},0]}                            
+                            ,60]},
+                        {'$toDecimal':{
+                            '$arrayElemAt':[
+                                '$%s.NewField'%event,
+                                -1
+                            ]
+                        }
+                        }    
+                        ]
+                }
+            }},
+            {'$group':
+            {
+                '_id': '$id',
+                'event': {'$first':event},
+                'course':{'$first':'$%s.Course'%event},
+                'arrayTime':{'$push': '$%s.NewField2'%event}
+            }
+            } 
+        ]
+    return np.array([float(str(i)) for i in list(collection.aggregate(pipeline))[0]['arrayTime']])
+
+
+
+
+# Not used code is below - keep as backup #
+
+
+def get_minmax(collection,course,event,id):
+    '''
+    Takes an pymongo object referencing to a collection, a course as string, an event as string and an id as string.
+    Returns an collection object with event, course as well as min and max as values.
+
+    Some scrapped time values have an m attached at the end. This gets "splitted" away.
+    Some times are with minutes and colon before the seconds. In order to transform the minutes into seconds the time filed is splitted at the colon.
+    This provides an array which is addressed via $arrayElemAt and an index.
+    '''
+    pipeline = [
+            {'$unwind': '$%s'%event},
+            {'$match':{
+                'id':id,
+                '%s.Course'%event:course
+            }},
+            {'$addFields':{
+                '%s.NewFieldM'%event: {
+                    '$split':[
+                        '$%s.Time'%event,
+                        'M'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField'%event: {
+                    '$split':[
+                        {
+                            '$arrayElemAt':[
+                                '$%s.NewFieldM'%event,
+                                0
+                            ]
+                        },
+                        ':'
+                    ]
+                },
+            }},
+            {'$addFields':{
+                '%s.NewField2'%event:{
+                    '$add':[
+                        {'$multiply':[
+                            {'$ifNull':[
+                            {'$toDecimal':{
+                            '$arrayElemAt':[
+                            '$%s.NewField'%event,
+                            -2]
+                            }},0]}                            
+                            ,60]},
+                        {'$toDecimal':{
+                            '$arrayElemAt':[
+                                '$%s.NewField'%event,
+                                -1
+                            ]
+                        }
+                        }    
+                        ]
+                }
+            }},
+            {'$group':
+            {
+                '_id': '$id',
+                'event': {'$first':event},
+                'course':{'$first':'$%s.Course'%event},
+                'minTime':{'$min': '$%s.NewField2'%event},
+                'maxTime':{'$max': '$%s.NewField2'%event}
+            }
+            } 
+        ]
+    return collection.aggregate(pipeline)
+
+
+

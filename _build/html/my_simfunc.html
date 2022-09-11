@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Simulation Functions &#8212; Swim Athlete Simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="My Functions" href="my_func.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Swim Athlete Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Webscrapping.html">
+   Acquiring Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Top100_Lists.html">
+   Top 100 Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Performance.html">
+   Performance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Simulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part1.html">
+   Intro and Sample Simulation
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Simulation_part2.html">
+   Time Complexity in Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://math.stackexchange.com/questions/4518903/allowed-to-multiply-probabilities-that-way-single-probabilities-for-a-simulta">
+     My Question on math.stackexchange.com
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part3.html">
+   Best Athlete Overall - Simulation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  py-Files
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_classes.html">
+   My Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_func.html">
+   My Functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   My Simulation Functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/my_simfunc.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/my_simfunc.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>My Simulation Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="my-simulation-functions">
+<h1>My Simulation Functions<a class="headerlink" href="#my-simulation-functions" title="Permalink to this headline">#</a></h1>
+<p>This notebook supports that content of the <a class="reference external" href="http://mysimfunc.py">mysimfunc.py</a> File can be shown in this Jupyter Book. The content is introduced in the Chapter Introduction to the Simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myclasses</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This code is not in myfunc.py because the functions below are too unique and of no use for Data Exploration.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">generate_objects</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">course</span><span class="p">,</span><span class="n">injured</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes myList with list of ids (as strings), collection as reference to mongoDB collection, event as string, course as string</span>
+<span class="sd">    injured is bool to decide the kind of objected that is wanted.</span>
+<span class="sd">    returns a dictionary of objects with athlete id as key and object as &quot;value&quot;.</span>
+
+<span class="sd">    The ValueErrer exception captures objects where min and max are equal. Thus it would be a degenerate distribution (Einpunktverteilung).</span>
+<span class="sd">    The IndexError exception captures every objects that does not provide data for the requested event and course.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">DictAthleteObjects</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">injured</span><span class="p">:</span>
+                <span class="n">DictAthleteObjects</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">imperfect_athlete</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">course</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">DictAthleteObjects</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">athlete</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">course</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">DictAthleteObjects</span>
+    
+<span class="k">def</span> <span class="nf">get_randomSample_participants</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes a list of athlete ids (any length)</span>
+<span class="sd">    returns a list of eight athlete ids</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">outList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">outList</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">outList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myList</span><span class="p">[</span><span class="n">rand</span><span class="p">])</span> <span class="k">if</span> <span class="n">myList</span><span class="p">[</span><span class="n">rand</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">outList</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">outList</span>
+
+<span class="k">def</span> <span class="nf">swim_race</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span><span class="n">ref_Dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes a list of 8 swimmers and a dictionary with objects</span>
+<span class="sd">    returns a list of tuples with athlete id and time</span>
+
+<span class="sd">    function calls the swim method of each provided object and stores the result with an id and time in a tuple.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">outList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
+        <span class="n">swim</span> <span class="o">=</span> <span class="n">ref_Dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">swim</span><span class="p">()</span>
+        <span class="n">outList</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="n">swim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">swim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">outList</span>
+
+<span class="k">def</span> <span class="nf">award_ceremony</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span><span class="n">ref_Dict</span><span class="p">,</span><span class="n">injured</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes a sorted list of results for 8 athletes (ascending sort) and a dictionary with objects</span>
+
+<span class="sd">    The provided list will be sorted ascending.</span>
+<span class="sd">    The while loop is poping the last element of the list. Thus the 8th place of the race.</span>
+<span class="sd">    Via execution of the add_placement for each object the placement counter will be increased.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myList</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">athlete</span><span class="p">:</span> <span class="n">athlete</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">athlete</span> <span class="o">=</span> <span class="n">myList</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">ref_Dict</span><span class="p">[</span><span class="n">athlete</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">add_placement</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">injured</span><span class="o">=</span><span class="n">athlete</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">list_to_string</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    to create proper title in plot below</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39; and &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="my_func.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">My Functions</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Markus Armbrecht<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Data
+    chapters:
+    - file: Webscrapping
+  - caption: Data Exploration
+    chapters:
+    - file: Data_Exploration_Top100_Lists
+      title: Top 100 Lists
+    - file: Data_Exploration_Performance
+      title: Performance
+  - caption: Simulation
+    chapters:
+    - file: Simulation_part1
+      title: Intro and Sample Simulation
+    - file: Simulation_part2
+      title: Time Complexity in Simulation
+      sections:
+      - url: https://math.stackexchange.com/questions/4518903/allowed-to-multiply-probabilities-that-way-single-probabilities-for-a-simulta
+        title: My Question on math.stackexchange.com
+    - file: Simulation_part3
+      title: Best Athlete Overall - Simulation
+  - caption: py-Files
+    chapters:
+    - file: my_classes
+    - file: my_func
+    - file: my_simfunc

@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Swim Athlete Simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Acquiring Data" href="Webscrapping.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Swim Athlete Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Webscrapping.html">
+   Acquiring Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Top100_Lists.html">
+   Top 100 Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Performance.html">
+   Performance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Simulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part1.html">
+   Intro and Sample Simulation
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Simulation_part2.html">
+   Time Complexity in Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://math.stackexchange.com/questions/4518903/allowed-to-multiply-probabilities-that-way-single-probabilities-for-a-simulta">
+     My Question on math.stackexchange.com
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part3.html">
+   Best Athlete Overall - Simulation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  py-Files
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_classes.html">
+   My Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_func.html">
+   My Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_simfunc.html">
+   My Simulation Functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-idea">
+   Project Idea
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-gina-lueckenkemper">
+     Background Gina Lueckenkemper
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-kathleen-baker">
+     Background Kathleen Baker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-simulation">
+     Monte-Carlo-Simulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#miscellaneous">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-idea">
+   Project Idea
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-gina-lueckenkemper">
+     Background Gina Lueckenkemper
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-kathleen-baker">
+     Background Kathleen Baker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-simulation">
+     Monte-Carlo-Simulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#miscellaneous">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<p>Coding Project for Python for Data Science
+by Markus Armbrecht.</p>
+<p>The overall objective is to present coding skills in Python in the context of an project. Additional Data Science environments are optional but benefitial (e.g. SQL and mongoDB).</p>
+<hr class="docutils" />
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>To gain knowledge in a large variaty of Data Science technologies, following bulletpoints are used as technology objectives.</p>
+<ul class="simple">
+<li><p>For and while loops</p></li>
+<li><p>Working with numpy and pandas</p></li>
+<li><p>Working with GeoData in GeoPandas and Geopy</p></li>
+<li><p>Webscrapping with BeautifulSoup</p></li>
+<li><p>Working with SQL databases</p></li>
+<li><p>Working with mongoDB</p></li>
+<li><p>Object oriented programming</p></li>
+<li><p>Plotting with Matplotlib, Folium and Plotly</p></li>
+<li><p>Understanding programming constrains in terms of Time Complexity</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="project-idea">
+<h2>Project Idea<a class="headerlink" href="#project-idea" title="Permalink to this headline">#</a></h2>
+<p>In order to achieve the technology objectives the Use Case should not be answered by existing datasets and an adequat approch for object oriented programming had to be found.</p>
+<p>I am a swimming enthusiast and always wanted to work in a sport analytics context. From time to time one can read about athletes not participating in competitions because of injuries or other random influences on performance.</p>
+<div class="section" id="background-gina-lueckenkemper">
+<h3>Background Gina Lueckenkemper<a class="headerlink" href="#background-gina-lueckenkemper" title="Permalink to this headline">#</a></h3>
+<p>For example in an interview on the Youtube Channel from <a class="reference external" href="https://youtu.be/2HR6FPdYYMw">Suttgarter Zeitung &amp; Suttgarter Nachrichten (2018)</a> Gina Lueckenkemper, a German sprinter and meanwhile European Champion, speaks about unexpected long travel time to tournaments - 14 hours instead of 5 hours - and other influences on consistent performance.
+Additionally following sentence once was said, according to an not very reliable source, but I know equal statements from her podcasts and other interviews.</p>
+<blockquote>
+<div><p>“Ich habe immer Probleme mit den Matratzen. Die sind weich und ziemlich durchgelegen. Mein Rücken ist da eh etwas empfindlich. Ich gehe jeden Tag zum Chiropraktiker, dann geht das wieder.“ (Gina Lueckenkemper according to <a class="reference external" href="https://www.bild.de/sport/mehr-sport/sport-mix/leichtathletik-wm-gina-hat-ein-matratzen-problem-80738596.bild.html">bild.de: 2022</a>)</p>
+</div></blockquote>
+</div>
+<div class="section" id="background-kathleen-baker">
+<h3>Background Kathleen Baker<a class="headerlink" href="#background-kathleen-baker" title="Permalink to this headline">#</a></h3>
+<p>In terms of swimming I know about the crohn’s disease background from Kathleen Baker, former world-record holder in 100m backstroke and 4x100m medley relay.</p>
+<p>Crohn’s disease is not yet fully understood by medicine. There can be triggers in the immune system as well environmental factors. Therefore the occurence of bad days due to crohn’s disease can be seen as random by some degree <a class="reference external" href="https://www.webmd.com/ibd-crohns-disease/crohns-disease/crohns-disease-causes">(webmd.com: 2022)</a>. An athlete has to travel a lot and traveling could also be a trigger <a class="reference external" href="https://www.dccv.de/betroffene-angehoerige/leben-mit-einer-ced/reisen/">(dccv.de: 2020)</a>.</p>
+<blockquote>
+<div><p>“I definitely think it’s challenging and most people don’t have to deal with a chronic disease while trying to make an Olympic team.” (Kathleen Baker according to <a class="reference external" href="https://olympics.com/en/news/kathleen-baker-crohns-disease-made-me-strong-swimming">olympics.com: 2021</a>)</p>
+</div></blockquote>
+</div>
+<div class="section" id="monte-carlo-simulation">
+<h3>Monte-Carlo-Simulation<a class="headerlink" href="#monte-carlo-simulation" title="Permalink to this headline">#</a></h3>
+<p>This background led to the idea of programming the structure for a <strong>Monte-Carlo-Simulation</strong> and to predict an athlete’s probability of winning a race when injured or not. During the chapter, this question will be adapted to other scenarios like chances to get on the winners’ podium. Furthermore the term <em>injured</em> is interpreted as any kind of issue at the moment of the race.</p>
+<p>The website <a class="reference external" href="https://www.swimrankings.net">www.swimrankings.net</a> provides data on swimming athletes all over the world and will be the data source for this project. Between webscrapping and Monte-Carlo-Simulation the Data Exploration is done to get an idea of the data, even if the structures are set when scrapping.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">#</a></h2>
+<p>This Readme File is planned to be the frontpage of a jupyter book. However, .py-Files are not displayed in jupyter books. To counter this, the .py-Files are separately presented in additional jupyter notebooks, while actual .py-Files are imported in the other jupyter notebooks.</p>
+<p>Some parts used the mathematical notation with $-symbols. Unfortunately this interfers with plotly plots in jupyter-book <a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html">(jupyterbook.org: 2022)</a>. Therefore mathematical notation is dismissed or moved to chapters without plotly plots. This was in such short notice that some operations could seem unnecessary, because originally the Simulation was in one notebook. The code was re-run after the split and works as shown.</p>
+<hr class="docutils" />
+<p>Icon by <a class="reference external" href="https://icons8.com">Icons8</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="Webscrapping.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Acquiring Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Markus Armbrecht<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

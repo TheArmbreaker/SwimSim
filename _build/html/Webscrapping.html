@@ -1,0 +1,1411 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acquiring Data &#8212; Swim Athlete Simulation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Exploration Top 100 Lists" href="Data_Exploration_Top100_Lists.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Swim Athlete Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Acquiring Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Top100_Lists.html">
+   Top 100 Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration_Performance.html">
+   Performance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Simulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part1.html">
+   Intro and Sample Simulation
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Simulation_part2.html">
+   Time Complexity in Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://math.stackexchange.com/questions/4518903/allowed-to-multiply-probabilities-that-way-single-probabilities-for-a-simulta">
+     My Question on math.stackexchange.com
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Simulation_part3.html">
+   Best Athlete Overall - Simulation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  py-Files
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_classes.html">
+   My Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_func.html">
+   My Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="my_simfunc.html">
+   My Simulation Functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Webscrapping.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Webscrapping.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-thoughts-on-ethics-of-webscrapping">
+   General thoughts on ethics of webscrapping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-for-top-100-athletes">
+   Basic Data for Top 100 Athletes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prepartion">
+     Prepartion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scrapping-top-100-lists">
+     Scrapping Top 100 Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-scrapped-data">
+     Store scrapped data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#webscrapping-athlete-s-performance-data">
+   Webscrapping Athlete’s Performance Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparation">
+     Preparation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scrapping">
+     Scrapping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-url-request">
+     Failed URL request
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-scrapped-data">
+     Backup Scrapped Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#empty-dicts-in-scrapped-data">
+     Empty Dicts in Scrapped Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#insert-data-into-mongodb-database">
+   Insert Data into MongoDB database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-learnings">
+   Additional learnings
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Acquiring Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-thoughts-on-ethics-of-webscrapping">
+   General thoughts on ethics of webscrapping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-for-top-100-athletes">
+   Basic Data for Top 100 Athletes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prepartion">
+     Prepartion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scrapping-top-100-lists">
+     Scrapping Top 100 Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-scrapped-data">
+     Store scrapped data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#webscrapping-athlete-s-performance-data">
+   Webscrapping Athlete’s Performance Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparation">
+     Preparation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scrapping">
+     Scrapping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-url-request">
+     Failed URL request
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backup-scrapped-data">
+     Backup Scrapped Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#empty-dicts-in-scrapped-data">
+     Empty Dicts in Scrapped Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#insert-data-into-mongodb-database">
+   Insert Data into MongoDB database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-learnings">
+   Additional learnings
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="acquiring-data">
+<h1>Acquiring Data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h1>
+<div class="section" id="general-thoughts-on-ethics-of-webscrapping">
+<h2>General thoughts on ethics of webscrapping<a class="headerlink" href="#general-thoughts-on-ethics-of-webscrapping" title="Permalink to this headline">#</a></h2>
+<p>In this chapter a website called <a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a> is scrapped.</p>
+<p>Web crawlers or scrapping are boon and bane for website operators. On the one hand they need crawlers - especially Google’s - to search and classify the websites’ content. On the other hand webscrapping leads to increased website traffic and thus increased costs for operators. The robots.txt for <a class="reference external" href="http://swimrankings.net">swimrankings.net</a> blocks crawlers who are not from Google. And they have scrapping protection in place. The screenshot shows that an empty page was returned, after I accidentaly run the code cell and a lot of requests in short time where send to the websites host.</p>
+<p><img alt="empty page" src="_images/empty_page_swimrankings.png" /></p>
+<p>After a while the side loaded again and asked if I am a robot:</p>
+<p><img alt="not a robot" src="_images/not_a_robot.png" /></p>
+<p>The data is the website’s exclusiv content and has to be respected as well as the fact that the website seems to finance itself with Google Ads and showing those ads to real people, not to Beautiful Soup. This is a small insight on ethical issues when performing webscrapping, because such a website might not be financially well provided to deal with traffic from being a constant webscrapping target.</p>
+<p>For this learning project the running time of the scrapping code is less important than the risk of having no data. Therefore and while having the ethical issues in mind the scrapping code was executed only once with several hours of time running. However the code is implemented in way that much more data (e.g. from seasons or athletes) could have been requested, but the approach “only take what you need” was performed.</p>
+<p>To behave like a human and to achieve the ridicoulous long time running the code is written with time.sleep and randint functions. This leads in worst case (if always the highest randint would be waited) to a time of 4.5 hours. This approach was chosen because in that time a human might has copied the data manually while ignoring the adds. Additionally different userAgents for BeautifulSoup are chosen with random.choice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myfunc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
+<span class="kn">import</span> <span class="nn">lxml</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Creating own exception classes</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">class</span> <span class="nc">Error</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Base class for own exceptions &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">List_Unequal_Length</span><span class="p">(</span><span class="n">Error</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Raised when the lists with swimmer data are unequal in length &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;Something went wrong. One list is shorter than another.&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-data-for-top-100-athletes">
+<h2>Basic Data for Top 100 Athletes<a class="headerlink" href="#basic-data-for-top-100-athletes" title="Permalink to this headline">#</a></h2>
+<div class="section" id="prepartion">
+<h3>Prepartion<a class="headerlink" href="#prepartion" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a> provides an overview of Top 100 currently activeathletes as well as Top 100 alltime athletes - each for male and female athletes.
+The screenshot shows a part of the websites’ menu. Each of the Top100 websites will be scrapped separately. Therefore a list with links is initiated below.</p>
+<p><img alt="title" src="_images/SchwimmerTop100.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linkList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteSelect&amp;nationId=0&amp;selectPage=TOP100_MEN&#39;</span><span class="p">,</span>
+<span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteSelect&amp;nationId=0&amp;selectPage=TOP100_WOMEN&#39;</span><span class="p">,</span>
+<span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteSelect&amp;nationId=0&amp;selectPage=TOP100_MEN_ALL&#39;</span><span class="p">,</span>
+<span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteSelect&amp;nationId=0&amp;selectPage=TOP100_WOMEN_ALL&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scrapping-top-100-lists">
+<h3>Scrapping Top 100 Lists<a class="headerlink" href="#scrapping-top-100-lists" title="Permalink to this headline">#</a></h3>
+<p>In the following code block the above mentioned lists is scrapped with BeautifulSoup bs4.
+Each link to a Top 100 list will be requested from the server only once and the text will be parsed for html code.</p>
+<p>The h3.tag contains the title of the top100 list and is printed for overview while the code is running. Additionaly it provides details that are the same for all athletes. Therefore the gender and the time is appended for every athlete in the list. When writting about <em>time</em> in the context of Top 100 lists the status “current” or “alltime” are meant. It is expected that alltime refers to athletes who still have an overall best value (like a world record) and are simply not active any more.</p>
+<p>Following Screenshot shows that each Top 100 lists consists of two tables which can be identified by the html-table-class “athleteList”. After finding the tables with class “athleteList” a function is called to save <em>name, year of birth, nationality and a website-specific swimmer id</em> in a list of dicts. As described above, those dicts will also contain the gender and status (currently active or alltime athlete). The swimmer’s id is part of a link to his/her specific data and is required for further activities.</p>
+<p>Each outputList from the function scrap_tables will extend the swimmerList. Thus swimmerList will be a list of 400 swimming athletes from all Top 100 categories.</p>
+<p><img alt="title" src="_images/Top100_lists.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/index.php?page=athleteSelect&amp;nationId=0&amp;selectPage=TOP100_MEN">swimrankings.net: Top100 Herren aktuell</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_swimmer_ID</span><span class="p">(</span><span class="n">mystring</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">mystring</span><span class="p">[</span><span class="n">mystring</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="k">def</span> <span class="nf">swimmerDetails</span><span class="p">(</span><span class="n">myString</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">swimmerSex</span><span class="p">(</span><span class="n">myString</span><span class="p">),</span> <span class="n">swimmerTime</span><span class="p">(</span><span class="n">myString</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">swimmerSex</span><span class="p">(</span><span class="n">myString</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;Men&#39;</span> <span class="ow">in</span> <span class="n">myString</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;m&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;f&#39;</span>
+
+<span class="k">def</span> <span class="nf">swimmerTime</span><span class="p">(</span><span class="n">myString</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;alltime&#39;</span> <span class="ow">in</span> <span class="n">myString</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;alltime&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;current&#39;</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scrap_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span><span class="n">sex</span><span class="p">,</span><span class="n">time</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    takes a tables extracted with beautifulsoup, a string with gender information and a string with time(current or alltime) information.</span>
+<span class="sd">    returns a List with attributes of an athlete</span>
+
+<span class="sd">    function is looking for different class_types to get the athlete attributes from the provided html tables</span>
+<span class="sd">    checks if single lists for all attributes are of same length, else raises error: List_Unequal_Length</span>
+<span class="sd">    generates a dictionary for every athlete and appends to outputList</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">outputList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+        <span class="n">nation</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">)</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+        <span class="n">range_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">range_</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">range_</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">range_</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">nation</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">List_Unequal_Length</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+            <span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;year_of_birth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;nation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nation</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_swimmer_ID</span><span class="p">(</span><span class="nb">id</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sex</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
+            <span class="n">outputList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">outputList</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">requests the provided link</span>
+<span class="sd">generates an soup object with html.parser</span>
+<span class="sd">extracts h3 information to distiguish gender and time (current or alltime)</span>
+<span class="sd">extracts tables with class attribute &#39;athleteList&#39; and creates a list of dictionaries from columns via scrap_tables function</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">swimmerList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">linkList</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">details_string</span> <span class="o">=</span> <span class="n">swimmerDetails</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;athleteList&#39;</span><span class="p">)</span>
+    <span class="n">swimmerList</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">scrap_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span><span class="n">details_string</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">details_string</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">swimmerList</span><span class="p">)</span>
+            
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 100 Men (current)
+--------------------
+Top 100 Women (current)
+--------------------
+Top 100 Men (alltime)
+--------------------
+Top 100 Women (alltime)
+--------------------
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="store-scrapped-data">
+<h3>Store scrapped data<a class="headerlink" href="#store-scrapped-data" title="Permalink to this headline">#</a></h3>
+<p>In the following a Dataframe will be generated from the swimmerList. It will be saved to a csv-file in order to prevent data lose and/or performing another scrapping. For a quick overview and doublecheck the head of the dataframe is returned.</p>
+<p>Additionally the data will be stored in a sql database with help of the sql alchemy module. Furthermore the data will be loaded from the sql database into a pandas dataframe. Each of those steps uses functions designed to be used in other context within a .py-file. For the notebooks on <em>Data Exploration</em> and <em>Simulation</em> this provides the benefit of requesting only needed data via SQL statements rather than loading the whole dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">swimmerList</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;backup_swimmerList.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>year_of_birth</th>
+      <th>nation</th>
+      <th>id</th>
+      <th>sex</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ANDREW, Michael C</td>
+      <td>1999</td>
+      <td>USA</td>
+      <td>4514190</td>
+      <td>m</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ARMSTRONG, Hunter</td>
+      <td>2001</td>
+      <td>USA</td>
+      <td>5361947</td>
+      <td>m</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BALANDIN, Dmitriy</td>
+      <td>1995</td>
+      <td>KAZ</td>
+      <td>4826602</td>
+      <td>m</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BERNEK, Peter</td>
+      <td>1992</td>
+      <td>HUN</td>
+      <td>4807746</td>
+      <td>m</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BORODIN, Ilya</td>
+      <td>2003</td>
+      <td>RUS</td>
+      <td>5299322</td>
+      <td>m</td>
+      <td>current</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generateSQLtable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">engine</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">inspector</span><span class="o">.</span><span class="n">has_table</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;sql table generated&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;sql table already exists&#39;</span>
+
+<span class="n">conf</span> <span class="o">=</span> <span class="n">connectDatabase</span><span class="p">(</span><span class="s1">&#39;configPostgresSQL.json&#39;</span><span class="p">)</span>
+<span class="n">conn_str</span> <span class="o">=</span> <span class="s1">&#39;postgresql://</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">@localhost:5432/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">conf</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">],</span> <span class="n">conf</span><span class="p">[</span><span class="s2">&quot;passw&quot;</span><span class="p">],</span><span class="n">conf</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">])</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">conn_str</span><span class="p">)</span>
+<span class="n">inspector</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">generateSQLtable</span><span class="p">(</span><span class="s1">&#39;swimmerData&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sql table generated&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span> <span class="o">=</span> <span class="n">readSQL</span><span class="p">(</span><span class="s1">&#39;swimmerData&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">new_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The scrapped data provides </span><span class="si">%d</span><span class="s1"> rows and </span><span class="si">%d</span><span class="s1"> columns.&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">new_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The scrapped data provides 400 rows and 6 columns.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="webscrapping-athlete-s-performance-data">
+<h2>Webscrapping Athlete’s Performance Data<a class="headerlink" href="#webscrapping-athlete-s-performance-data" title="Permalink to this headline">#</a></h2>
+<div class="section" id="preparation">
+<h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">#</a></h3>
+<p>For each of the currently active athletes in above Top 100 lists the specific performance in 2020 and 2021 is scrapped.</p>
+<p><a class="reference external" href="https://www.swimrankings.net">swimrankings.net</a> provides data for all results in a specific year for each athlete. The athlete is identified by the id which was scrapped from the Top 100 lists. To get those ids an pandas dataframe is created with an sql query. At the moment a dataframe is created and the id-column transfered to a list. This could be changed to a query selecting only the ids.</p>
+<p>For each athlete the specific year data is provided in several columns with the event type as title. While the screenshot shows german translations the code receives english data when requested from the url. Each url is build with an athleteID= and result= part. Thus the id list can be used to request an athlete specific performance list. The screenshot shows red highlighted parts of the website.</p>
+<p><img alt="title" src="_images/athlete_performance.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4772537&amp;result=2020">swimrankings.net Athlete: Caeleb Dressel</a>)</p>
+<br>
+<p><strong>Scrapping functions</strong></p>
+<p>The next code block presents the functions created for the scrapping and to keep an overview of steps.
+Each function has a doc string with further information.</p>
+<p>Before reading the functions, please read the markdown cell below. It provides a simple background on swimming competitions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">access_swim_performance_website</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes a link to a website.</span>
+<span class="sd">    Returns a BeatifulSoup Object</span>
+<span class="sd">    If request returns a ReadTimeout Error a note will be printed and the return is None</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">myheaders</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">},{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Chrome/51.0.2704.64&#39;</span><span class="p">},{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Safari/601.3.9&#39;</span><span class="p">}]</span>
+        <span class="n">get_header</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">myheaders</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">get_header</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ReadTimeout</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read timeout at&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">scrap_performance</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span><span class="n">season</span><span class="o">=</span><span class="s1">&#39;0000&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes tables from beautifulSoup find_all function, an athlete id and a season variable.</span>
+<span class="sd">    Returns a dictionary which is successivly generated via function get_dict.</span>
+<span class="sd">    </span>
+<span class="sd">    From Screenshot above one can see that the tables have white and grey rows. Those are identified by the classes in tr tags.</span>
+<span class="sd">    The class event in th tags returns the event like &quot;50m Freestyle&quot;.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+        <span class="n">meets</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:[</span><span class="s1">&#39;athleteResult0&#39;</span><span class="p">,</span><span class="s1">&#39;athleteResult1&#39;</span><span class="p">]})</span>
+        <span class="n">mystring</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;event&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">myDict</span> <span class="o">=</span> <span class="n">myDict</span> <span class="o">|</span> <span class="n">get_dict</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">mystring</span><span class="p">,</span><span class="n">meets</span><span class="p">,</span><span class="n">season</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">myDict</span>
+
+<span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">mystring</span><span class="p">,</span><span class="n">meets</span><span class="p">,</span><span class="n">season</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes the athlete id, the string with the event, the array with performance data from rows and the season variable.</span>
+<span class="sd">    Returns a dictionary with performance data in a list of dicts generated from the create_event function.</span>
+
+<span class="sd">    The variables id, mystring and season are passed through to the create_event function.</span>
+
+<span class="sd">    Meets is an BeautifulSoup object with all tr tags for classes &quot;athleteResult0&quot; and &quot;athleteResult1&quot;.</span>
+<span class="sd">    The contents will be separated into text snippets and stored to a list of lists where each inner list represents a scrapped row.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">meet</span> <span class="ow">in</span> <span class="n">meets</span><span class="p">:</span>
+        <span class="n">myList_inner</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">meet_data</span> <span class="o">=</span> <span class="n">meet</span><span class="o">.</span><span class="n">contents</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">meet_data</span><span class="p">:</span>
+            <span class="n">myList_inner</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">myList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myList_inner</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">create_event</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">mystring</span><span class="p">,</span><span class="n">myList</span><span class="p">,</span><span class="n">season</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_event</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">mystring</span><span class="p">,</span><span class="n">rows</span><span class="p">,</span><span class="n">season</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes the id, the event as mystring, the list of rows and season.</span>
+<span class="sd">    Returns a dictionary with keys: id, season, event (eg. 50m Freestyle)</span>
+
+<span class="sd">    Creates the actual dictionary - not just the event! Function name is a bit missleading.</span>
+<span class="sd">    The id and seasons keys get overwritten by the merge operator in scrap_performance in every call of get_dict.</span>
+<span class="sd">    Here is good chance to improve the code, when time is left before deadline.</span>
+
+<span class="sd">    Behind key from event string a list of performances is generated via create_event_list function.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+    <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">season</span>
+    <span class="n">myDict</span><span class="p">[</span><span class="n">mystring</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_event_list</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">myDict</span>
+
+<span class="k">def</span> <span class="nf">create_event_list</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes the list of lists where each list represents a row from the scrapped data.</span>
+<span class="sd">    Returns a dictionary for each row from the scrapped data.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">myList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="n">myDict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Place&#39;</span><span class="p">,</span><span class="s1">&#39;Course&#39;</span><span class="p">,</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;Points&#39;</span><span class="p">]</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">myDict</span><span class="p">[</span><span class="n">column_names</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">myList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myDict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">myList</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scrapping">
+<h3>Scrapping<a class="headerlink" href="#scrapping" title="Permalink to this headline">#</a></h3>
+<p>Below code block is the actual scrapping code which calls above presented functions.</p>
+<p><strong>Outer For-Loop:</strong> The outer for-loop is iterating through the list of wanted seasons (years).</p>
+<p><strong>Inner For-Loop:</strong> The inner loop iterates over a list of athlete ids which is retrieved from previous introduced sql database.
+Each year an id will be inserted in a link to <a class="reference external" href="https://www.swimrankings.net">swimrankings.net</a></p>
+<p>The link is passed into the function access_swim_performance_website which returns a beautifulsoup object or None in case of an request timeout.</p>
+<p>If the request was successful the object will be searched for table classes <em>athleteResult</em> and the <em>width=350 attribute</em>.
+Those tables will be used to call the function scrap_performance. Results are appended to the swimmerPerfList. The results are dictionaries with following structure.</p>
+<p><strong>Dict Structure</strong>
+Each element of swimPerfList is a dictionary with the athelete id and season. This information is followed by different amount of keys for different swim events. For each key a list of dictionaries is generated. Those dictionaries hold the performance data for the event type.</p>
+<p>In this work the term event is used for the stroke an athlete swims. There are Freestyle, Breaststroke, Backstroke and Butterfly as well as mixed races (medleys). Furthermore each event is linked to a specific course (pool distance).
+Within the list of dicts for each event the dictionaries hold the date of that performance, the place or location where the race took place, the course (pool distance) that was swam and the points.</p>
+<p>The course describes the length of the pool. There are different distances like 25 or 50 meter. Those distances are important to consider when analysing the time because they describe a turning point where the athlete has the chance to push him- or herself away and gain some speed with a few dolphin kicks. A first hypothesis can be derived from this discription. The times for 100m Freestyle on 25m course shall be smaller than on 50m courses.
+The points are some value from the Fina federation which adminsters international water sport competitions.</p>
+<p><img alt="title" src="_images/fina_points.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4029113&amp;result=2020">swimrankings.net</a>)</p>
+<br>
+Example for Dict Structure with an athlete id for season 2020 and only once swimming 100m Freestyle:
+<p>{<br>
+    ‘id’:’123456’,<br>
+    ‘season’:’2020’,<br>
+    ‘100m Freestyle’:[{<br>
+        ‘Date’: ‘some date’,<br>
+        ‘Place’: ‘somewhere’,<br>
+        ‘Course’: ‘pool distance’,<br>
+        ‘Time’: ‘some value’,<br>
+        ‘Points’: ‘some value’<br>
+    }]<br>
+}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM &quot;swimmerData&quot; WHERE time=</span><span class="se">\&#39;</span><span class="s1">current</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">idList</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">List_Failure</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">swimmerPerfList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span><span class="mi">2021</span><span class="p">]</span>
+<span class="n">total_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+    <span class="n">year_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">idList</span><span class="p">:</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&amp;result=</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">access_swim_performance_website</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">soup</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">List_Failure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;athleteResult&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;350&#39;</span><span class="p">)</span>
+        <span class="n">swimmerPerfList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scrap_performance</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">year_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">total_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="s1">&#39;Iteration:&#39;</span><span class="p">,</span><span class="n">total_counter</span><span class="p">,</span><span class="s1">&#39;year: &#39;</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="s1">&#39;year_counter:&#39;</span><span class="p">,</span><span class="n">year_counter</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">45</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="s1">&#39;Iteration:&#39;</span><span class="p">,</span><span class="n">total_counter</span><span class="p">,</span><span class="s1">&#39;year: &#39;</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="s1">&#39;year_counter:&#39;</span><span class="p">,</span><span class="n">year_counter</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span><span class="mi">1800</span><span class="p">))</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data for </span><span class="si">%d</span><span class="s1"> swimmers was scrapped&#39;</span><span class="o">%</span><span class="k">len</span>(swimmerPerfList))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="failed-url-request">
+<h3>Failed URL request<a class="headerlink" href="#failed-url-request" title="Permalink to this headline">#</a></h3>
+<p>Unfortunately the print statement from the webscrapping code block got lost when cells where joined. It was 399, thus one athlete’s information was not scrapped. However, below a list with unsuccesfully requested links is returned. This link was evaluated manually and afterwards appended to to the swimmerPerfList with a function call. Additionally the last element of swimPerfList was returned for double check. It shows that the missed id was successfully appended. Additionally it shows an example for above described data structure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">List_Failure</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4481439&amp;result=2020&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">swimmerPerfList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scrap_performance</span><span class="p">(</span><span class="n">access_swim_performance_website</span><span class="p">(</span><span class="n">List_Failure</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;athleteResult&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;350&#39;</span><span class="p">),</span><span class="s1">&#39;4481439&#39;</span><span class="p">,</span><span class="mi">2020</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">swimmerPerfList</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: 4481439,
+ &#39;season&#39;: 2020,
+ &#39;100m Freestyle&#39;: [{&#39;Date&#39;: &#39;12 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;51.58&#39;,
+   &#39;Points&#39;: &#39;661&#39;}],
+ &#39;50m Breaststroke&#39;: [{&#39;Date&#39;: &#39;4 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Glasgow (GBR)&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;27.61&#39;,
+   &#39;Points&#39;: &#39;764&#39;},
+  {&#39;Date&#39;: &#39;13 Jun 2020&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;28.96&#39;,
+   &#39;Points&#39;: &#39;719&#39;}],
+ &#39;100m Breaststroke&#39;: [{&#39;Date&#39;: &#39;5 Oct 2019&#39;,
+   &#39;Place&#39;: &#39;Pori&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;1:00.83&#39;,
+   &#39;Points&#39;: &#39;752&#39;},
+  {&#39;Date&#39;: &#39;6 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Glasgow (GBR)&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;59.74&#39;,
+   &#39;Points&#39;: &#39;794&#39;},
+  {&#39;Date&#39;: &#39;13 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;58.09&#39;,
+   &#39;Points&#39;: &#39;864&#39;},
+  {&#39;Date&#39;: &#39;13 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;59.46&#39;,
+   &#39;Points&#39;: &#39;806&#39;},
+  {&#39;Date&#39;: &#39;13 Jun 2020&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;1:01.51&#39;,
+   &#39;Points&#39;: &#39;790&#39;},
+  {&#39;Date&#39;: &#39;15 Nov 2020&#39;,
+   &#39;Place&#39;: &#39;Oulu&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;1:01.18&#39;,
+   &#39;Points&#39;: &#39;803&#39;},
+  {&#39;Date&#39;: &#39;15 Nov 2020&#39;,
+   &#39;Place&#39;: &#39;Oulu&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;1:01.39&#39;,
+   &#39;Points&#39;: &#39;795&#39;}],
+ &#39;200m Breaststroke&#39;: [{&#39;Date&#39;: &#39;5 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Glasgow (GBR)&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;2:06.46&#39;,
+   &#39;Points&#39;: &#39;857&#39;},
+  {&#39;Date&#39;: &#39;14 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;2:09.33&#39;,
+   &#39;Points&#39;: &#39;802&#39;},
+  {&#39;Date&#39;: &#39;14 Dec 2019&#39;,
+   &#39;Place&#39;: &#39;Tampere&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;2:04.63&#39;,
+   &#39;Points&#39;: &#39;896&#39;},
+  {&#39;Date&#39;: &#39;14 Nov 2020&#39;,
+   &#39;Place&#39;: &#39;Oulu&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;2:14.81&#39;,
+   &#39;Points&#39;: &#39;818&#39;},
+  {&#39;Date&#39;: &#39;14 Nov 2020&#39;,
+   &#39;Place&#39;: &#39;Oulu&#39;,
+   &#39;Course&#39;: &#39;50m&#39;,
+   &#39;Time&#39;: &#39;2:11.81&#39;,
+   &#39;Points&#39;: &#39;876&#39;}],
+ &#39;50m Butterfly&#39;: [{&#39;Date&#39;: &#39;5 Oct 2019&#39;,
+   &#39;Place&#39;: &#39;Pori&#39;,
+   &#39;Course&#39;: &#39;25m&#39;,
+   &#39;Time&#39;: &#39;25.97&#39;,
+   &#39;Points&#39;: &#39;587&#39;}],
+ &#39;_id&#39;: ObjectId(&#39;62f297566ae80f6f52b1e2b1&#39;)}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backup-scrapped-data">
+<h3>Backup Scrapped Data<a class="headerlink" href="#backup-scrapped-data" title="Permalink to this headline">#</a></h3>
+<p>The swimPerfList object is stored in a json-file backup. This provides the oppertunity to work with the data without the need of a second scrapping run in case of data lose. The code is commented out to prevent changes to the backup.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with open(&#39;backup_scrappedData_dummyFileName.json&#39;,&#39;w&#39;) as f:</span>
+<span class="c1">#     json.dump(swimmerPerfList,f)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;backup_scrappedData.json&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">swimmerPerfList</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="empty-dicts-in-scrapped-data">
+<h3>Empty Dicts in Scrapped Data<a class="headerlink" href="#empty-dicts-in-scrapped-data" title="Permalink to this headline">#</a></h3>
+<p>The scrapped data contains empty dictionaries, because for some athletes data for either 2020 or 2021 is not available. For e.g. the below screenshot shows an exceptional example where the years from 2013 until 2019 are missing. The athlete somehow became active after eight years or the seasons where not recorded.</p>
+<p>Before such data is loaded into the mongoDB database those empty dictionaries will be removed by following code block. The print statement beneath shows that 365 filled dictionaries exists. This means that from expected 400 entries (200 athletes * 2 seasons) there is no data for 35 athletes in at least one season.</p>
+<p><img alt="title" src="_images/missingDataExample.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4029113&amp;result=2020">swimrankings.net Athlete: Brent Hayden</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">set trigger to True to clear swimPerfList from empty dictionaries. Else print a statement.</span>
+
+<span class="sd">takes the swimPerList which includes empty dictionaries.</span>
+<span class="sd">iterates over all dictionaries and counts += 1, when dictionary is empty the expression bool(dict)==False is True.</span>
+
+<span class="sd">for the amount of counted empty dictionaries the while loop is running.</span>
+<span class="sd">it iterates over the length of the list and deletes empty dictionaries.</span>
+
+<span class="sd">There might be faster way using numpy. However, it provides a great possibility to show understanding of for and while loops.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">trigger</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of swimmerPerfList before removal of empty dictionaries:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">trigger</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">swimmerPerfList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">swimmerPerfList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New length of swimmerPerfList:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">swimmerPerfList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">swimmerPerfList</span> <span class="k">if</span> <span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of swimmerPerfList after removal of empty dictionaries:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New length of swimmerPerfList: 365
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Following code is easier than above.</span>
+<span class="sd">Function 1 works only for python 2.7</span>
+<span class="sd">Function 2 works for values, but not for Dictionary Objects.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Function 1</span>
+<span class="c1"># test = list(filter(None,test))</span>
+
+<span class="c1"># Function 2</span>
+<span class="c1"># empty_dict = {}</span>
+<span class="c1"># while empty_dict in test:</span>
+<span class="c1">#     list.remove(empty_dict)</span>
+<span class="c1"># print(&#39;New length of swimmerPerfList:&#39;,len(test))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="insert-data-into-mongodb-database">
+<h2>Insert Data into MongoDB database<a class="headerlink" href="#insert-data-into-mongodb-database" title="Permalink to this headline">#</a></h2>
+<p>In this part the scrapped performance data is stored in a MongoDB. In comparision to above used sql database a mongoDB database is more adequate for the different amounts of events an athlete swims. For example not everybody is swimming 100m Freestyle, some athletes swim different styles like Breaststroke or Butterfly. Other Athletes swim longer or shorter distances. Even if the events are the same not every athlete is competing the same amount of times. Thus a table based database would have a lot of empty cells while taking up a lot of space and a mongoDB database should be favoured for such unstructered data.</p>
+<ol class="simple">
+<li><p>After mongoDB was started the connection is setup via Mongoclient. If there is no Database <em>swimmerData</em> with an collection <em>performance</em> it will be created.</p></li>
+<li><p>The function insert_many inserts the whole swimmerPerfList from above. However, the insert_one function could have been used in the webscrapping code to skip the past steps. As described earlier I prefered a way to get backup copy in json-format. Especially because this is my first time working with mongoDB.</p></li>
+<li><p>Check if length of collection is the same as the length of swimmerPerfList.</p></li>
+<li><p>Check if only scrapped information for 2020 and 2021 is included or something went wrong.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>brew services start mongodb-community@5.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">==&gt;</span> <span class=" -Color -Color-Bold">Successfully started `mongodb-community` (label: homebrew.mxcl.mongodb-commu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Code to connect to mongoDB via MongoClient.</span>
+<span class="sd">If there is no database called swimmerData it will be created.</span>
+<span class="sd">The Collection is called performance.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before:&#39;</span><span class="p">,</span><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">())</span>
+<span class="n">mydb</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;swimmerData&#39;</span><span class="p">]</span>
+<span class="n">mycol</span> <span class="o">=</span> <span class="n">mydb</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">]</span>
+<span class="k">if</span> <span class="s1">&#39;swimmerData&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">():</span>
+    <span class="n">mycol</span><span class="o">.</span><span class="n">insert_many</span><span class="p">(</span><span class="n">swimmerPerfList</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New Database </span><span class="se">\&#39;</span><span class="s1">swimmerData</span><span class="se">\&#39;</span><span class="s1"> generated&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After:&#39;</span><span class="p">,</span><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before: [&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;]
+New Database &#39;swimmerData&#39; generated
+After: [&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;, &#39;swimmerData&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Code to delete the mongoDB database. Used for testing purposes.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># client.drop_database(&#39;swimmerData&#39;)</span>
+<span class="c1"># print(client.list_database_names())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Code to verify that all documents are stored.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">mycoll</span> <span class="o">=</span> <span class="n">mydb</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="s1">&#39;performance&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Collection has </span><span class="si">%d</span><span class="s1"> documents.&#39;</span><span class="o">%</span><span class="k">mycoll</span>.estimated_document_count())
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collection has 365 documents.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mycoll</span><span class="o">.</span><span class="n">distinct</span><span class="p">(</span><span class="s1">&#39;season&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2020, 2021]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>brew services stop mongodb-community@5.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">Warning:</span> Service `mongodb-community` is not started.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="additional-learnings">
+<h2>Additional learnings<a class="headerlink" href="#additional-learnings" title="Permalink to this headline">#</a></h2>
+<p>Below code block shows a snippet that was used in first attempts of coding the webscrapper for performance data. One can see that instead of lxml the ‘html.parser’ was used. Somehow this parser returned code not as expected from examination in Google Chrome. Switching to lxml provided much cleaner code snippets for scrapping.</p>
+<ul class="simple">
+<li><p>html.parser worked for the top100 lists because the code was very structured.</p></li>
+<li><p>lxml parser worked better for the variaty of different event lists with each row having a different class.</p></li>
+</ul>
+<p>The reason for this still has to be researched. First idea is that html.parser did not favore the nested table structures for unequal amounts of tables on each athletes side. The screenshot below shows the unusal table alignment for event results. This is different for every athlete, because it depends on the amount of data.</p>
+<p><img alt="example table alignment" src="_images/table_alignment_perfData.png" /></p>
+<p>(Source: <a class="reference external" href="https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4466830&amp;result=2021">swimrankings.net</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;user-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;myPC&#39;</span>
+<span class="p">}</span>
+<span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;https://www.swimrankings.net/index.php?page=athleteDetail&amp;athleteId=4772537&amp;result=2021&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Data_Exploration_Top100_Lists.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Exploration Top 100 Lists</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Markus Armbrecht<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

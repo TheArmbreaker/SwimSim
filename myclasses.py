@@ -1,0 +1,120 @@
+from myfunc import *
+
+class athlete:
+    def __init__(self,id,collection,event,course):
+        '''
+        creates basis values for object.
+        id for identification, counter to count races, placement dict to keep track of rankings.
+        '''
+        self.id = id[0]
+        self.name = id[1]
+        self.counter = 0
+        self.placement={}
+        for i in range(8):
+            self.placement[i+1]=0
+        '''
+        takes the collection as pymongo object as well as event, course and id as string.
+        loads the minimum and maximum time an athlete ever swam.
+        raises ValueError when min and max are equal.
+        loads the mean and standard deviation, if min and max are not equal
+        '''
+        self.min = np.min(get_array_times(collection,course,event,id[0]))
+        self.max = np.max(get_array_times(collection,course,event,id[0]))
+        if self.min == self.max:
+            raise ValueError
+        else:
+            self.mean = np.mean(get_array_times(collection,course,event,id[0]))
+            self.std = np.std(get_array_times(collection,course,event,id[0]),ddof=1)
+
+    def add_placement(self,key,injured=None):
+        '''
+        increases the count of placement for the athlete and keeps track of total races
+        '''
+        self.counter += 1
+        self.placement[key] += 1
+
+    def get_id(self):
+        return self.id
+
+    def get_name(self):
+        return self.name
+
+    def get_placements(self):
+        return self.placement
+
+    def get_placement_ratio(self,key,ratio_type=None):
+        '''
+        takes the placement as key and returns the ratio for races won with requested placement.
+        '''
+        return round(self.placement[key]/self.counter,2)
+
+    def get_min_max(self):
+        '''
+        returns actual min and max values of athlete
+        '''
+        return [self.min,self.max]
+
+    def swim(self):
+        '''
+        returns random value between min and max values of athlete
+        needs to return False as second variable to simplify code to switch between injured and not injured athletes.
+        '''
+        return np.random.normal(self.mean,self.std), False
+            
+
+class imperfect_athlete(athlete):
+    def __init__(self,id,collection,event,course):
+        '''
+        inherits from athlete class
+        creates addition basics to evaluate injured athletes (counter and placement tracking)
+        and sets a min value to be used when athlete is injured. (mean of sample)
+        '''
+        super().__init__(id,collection,event,course)
+        self.counter_injured = 0
+        self.placement_injured={}
+        for i in range(8):
+            self.placement_injured[i+1]=0
+
+    def add_placement(self,key,injured=False):
+        '''
+        increases the count of specific placement for the athlete and keeps track of total races
+        calls parentclass method to increase total races
+        '''
+        if injured:
+            self.counter_injured += 1
+            self.placement_injured[key] += 1
+            super().add_placement(key)
+        else:
+            super().add_placement(key)
+
+    def get_ratio_injured(self):
+        return self.counter_injured
+    
+    def get_placement_injured(self):
+        return self.placement_injured
+
+    def get_placement_ratio(self,key,ratio_type):
+        '''
+        takes placement key and ratio_type as string
+        returns the ratio of placement compared to total races. either for the athletes status: injured, fit or all races.
+        '''
+        if ratio_type not in ('injured','fit','total'):
+            raise Exception('ratio_type must be string: injured, fit or total')
+        if ratio_type=='injured':
+            return round(self.placement_injured[key]/self.counter,2)
+        elif ratio_type=='fit':
+            return round((self.placement[key]-self.placement_injured[key])/self.counter,2)
+        else:
+            return super().get_placement_ratio(key)
+
+    def swim(self):
+        '''
+        evaluates if athlete is injured. Depending on True or False a value from normal distribution is returned.
+        If injured, the min value will be replaced by the mean and a "new mean" calculated.
+        '''
+        if 0.5 >= np.random.uniform(0,1):
+            return np.random.normal((self.mean+self.max)/2,self.std), True
+        else:
+            return np.random.normal(self.mean,self.std), False
+
+
