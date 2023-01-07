@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Best Athlete of Event - Time Complexity &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -420,7 +424,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="best-athlete-of-event-time-complexity">
+  <section class="tex2jax_ignore mathjax_ignore" id="best-athlete-of-event-time-complexity">
 <h1>Best Athlete of Event - Time Complexity<a class="headerlink" href="#best-athlete-of-event-time-complexity" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,7 +472,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="time-complexity">
+<section id="time-complexity">
 <h2>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h2>
 <p>In order to answer the question which athlete places first most often, each possible combination has to be iterated. This leads to the topic of time complexity.</p>
 <p>To assess an algorithms efficiency the Big Oh notation <strong>O()</strong> is commonly used. It describes the growth of an algorithm in a worst case scenario and is independent from the machine or implementation. A lower order of growth shall be favored. For example one for loop with one operation has the notation O(n), because the constant operation will be performed n times and the n is the dominant term.</p>
@@ -499,8 +503,8 @@ For nested statements the law of multiplication has to be applied. Thus the oute
 <p><span class="math notranslate nohighlight">\( O(n)*O(m)*O(k) = O(n*m*k) \)</span></p>
 <p>This Big O notation reveals that the algorithm is not linear but also not polynominal or exponential.</p>
 <p>Because we know that swimrace and award_ceremony have the length of 8 and the simulation range is 10000, it is possible to say that those loops have <span class="math notranslate nohighlight">\( 2x8x10000 = 160000 \)</span> constant iterations for <span class="math notranslate nohighlight">\( k \)</span>. Therefore the algorithm’s behaviour in terms of order of growth is assumed being close to a linear. Thus the range <span class="math notranslate nohighlight">\( k \)</span> for the outer loop leads to unknown iterations over all possible combinations, which is a main issue.</p>
-</div>
-<div class="section" id="iterating-possible-combinations">
+</section>
+<section id="iterating-possible-combinations">
 <h2>Iterating possible combinations<a class="headerlink" href="#iterating-possible-combinations" title="Permalink to this headline">#</a></h2>
 <p>Below print statement shows the amount of iterations which are possible. Those are leading to a long runtime when iterating with iteration.combinations(). At this point another approach has to be found to simulate all possible combinations.</p>
 <ol class="simple">
@@ -554,10 +558,10 @@ For races between 8 athletes this gives 495.0 possible combinations.
 </div>
 </div>
 </div>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -610,6 +614,9 @@ For races between 8 athletes this gives 495.0 possible combinations.
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>

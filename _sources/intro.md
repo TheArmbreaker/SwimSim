@@ -31,7 +31,7 @@ I am a swimming enthusiast and always wanted to work in a sport analytics contex
 
 ### Background Gina Lueckenkemper
 
-For example in an interview on the Youtube Channel from [Suttgarter Zeitung & Suttgarter Nachrichten (2018)](https://youtu.be/2HR6FPdYYMw) Gina Lueckenkemper, a German sprinter and meanwhile European Champion, speaks about unexpected long travel time to tournaments - 14 hours instead of 5 hours - and other influences on consistent performance.
+For example in an interview on the Youtube Channel from [Stuttgarter Zeitung & Stuttgarter Nachrichten (2018)](https://youtu.be/2HR6FPdYYMw) Gina Lueckenkemper, a German sprinter and meanwhile European Champion, speaks about unexpected long travel time to tournaments - 14 hours instead of 5 hours - and other influences on consistent performance.
 Additionally following sentence once was said, according to an not very reliable source, but I know equal statements from her podcasts and other interviews.
 > "Ich habe immer Probleme mit den Matratzen. Die sind weich und ziemlich durchgelegen. Mein Rücken ist da eh etwas empfindlich. Ich gehe jeden Tag zum Chiropraktiker, dann geht das wieder.“ (Gina Lueckenkemper according to [bild.de: 2022])
 
@@ -55,10 +55,6 @@ The website [www.swimrankings.net](https://www.swimrankings.net) provides data o
 This Readme File is planned to be the frontpage of a jupyter book. However, .py-Files are not displayed in jupyter books. To counter this, the .py-Files are separately presented in additional jupyter notebooks, while actual .py-Files are imported in the other jupyter notebooks.
 
 Some parts used the mathematical notation with $-symbols. Unfortunately this interfers with plotly plots in jupyter-book [(jupyterbook.org: 2022)]. Therefore mathematical notation is dismissed or moved to chapters without plotly plots. This was in such short notice that some operations could seem unnecessary, because originally the Simulation was in one notebook. The code was re-run after the split and works as shown.
-
----
-
-Icon by [Icons8](https://icons8.com).
 
 [bild.de: 2022]: https://www.bild.de/sport/mehr-sport/sport-mix/leichtathletik-wm-gina-hat-ein-matratzen-problem-80738596.bild.html
 [olympics.com: 2021]: https://olympics.com/en/news/kathleen-baker-crohns-disease-made-me-strong-swimming

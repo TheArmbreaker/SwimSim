@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Data Exploration Performance &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -502,7 +506,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-exploration-performance">
+  <section class="tex2jax_ignore mathjax_ignore" id="data-exploration-performance">
 <h1>Data Exploration Performance<a class="headerlink" href="#data-exploration-performance" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -642,7 +646,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </div>
 </div>
 </div>
-<div class="section" id="questions">
+<section id="questions">
 <h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h2>
 <p>In this chapter the performances of every athlete will be explored.</p>
 <p>As discussed in the webscrapping chapter only the data for currently active athletes was scrapped. The data is stored in a mongoDB database and has following structure.</p>
@@ -667,8 +671,8 @@ Example for Dict Structure:
 <li><p>What is the relation between points and time?</p></li>
 <li><p>Where do the competitions take place?</p></li>
 </ul>
-</div>
-<div class="section" id="pipelines-and-queries">
+</section>
+<section id="pipelines-and-queries">
 <h2>Pipelines and Queries<a class="headerlink" href="#pipelines-and-queries" title="Permalink to this headline">#</a></h2>
 <p>To access the mongoDB database the find or the aggregate functions from pymongo are used on the collection. While building those pipelines / queries it occured that for some time-values the letter M is attached. Additionnaly some Dates have the letter T at the end. Those letters will be removed to get pipelines and queries work with numerical data operations.</p>
 <p>This could have prevented with checking the data before loading it into the mongoDB, because the pipelines had to be designed more complex. However, it provided an awesome learning opportunity. The results are in My Functions.</p>
@@ -708,8 +712,8 @@ Example for Dict Structure:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="overview-on-events">
+</section>
+<section id="overview-on-events">
 <h2>Overview on Events<a class="headerlink" href="#overview-on-events" title="Permalink to this headline">#</a></h2>
 <p>First a pandas dataframe is generated that holds the count of events per season.</p>
 <p>From this output a set of events is generated. The print() function is used to prevent a long output with one line per event.</br></p>
@@ -795,8 +799,8 @@ The picture shows the 2020 data for Caleb Dressel. Therein 50m Freestyle and 50m
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="most-favourite-events">
+</section>
+<section id="most-favourite-events">
 <h2>Most favourite Events<a class="headerlink" href="#most-favourite-events" title="Permalink to this headline">#</a></h2>
 <p>Following output shows that the 100m Freestyle events are the most common for the athletes. Closely followed by 50m and 200m Freestyle.</br></p>
 <p>It is to highlight that this value is the sum of keys for eventtypes. Within each event could be several more entries for each participation of an athlete.</br>
@@ -932,8 +936,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-<div class="section" id="season-durations">
+</section>
+<section id="season-durations">
 <h2>Season durations<a class="headerlink" href="#season-durations" title="Permalink to this headline">#</a></h2>
 <p>When requesting the min and max dates for each season an interesting overlap is seen.</p>
 <p>Season 2020 starts in the second half and ends in December 2020. Despite the fact that season 2021 already started in the second half of 2020.</p>
@@ -953,8 +957,8 @@ Season 2021 was from 2020-08-11 until 2021-12-23
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="points-vs-time">
+</section>
+<section id="points-vs-time">
 <h2>Points vs Time<a class="headerlink" href="#points-vs-time" title="Permalink to this headline">#</a></h2>
 <p>So far Top100 and Performance data was explored separately from this chapter on the data will be merged to enrich the exploration.</p>
 <p>The following plot shows the relation between <em>time</em> and <em>points</em> for each gender group in 100m Freestyle on 50m courses.</p>
@@ -1015,8 +1019,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-<div class="section" id="derive-new-information-from-athlete-s-data">
+</section>
+<section id="derive-new-information-from-athlete-s-data">
 <h2>Derive new information from Athlete’s data<a class="headerlink" href="#derive-new-information-from-athlete-s-data" title="Permalink to this headline">#</a></h2>
 <p>In this part the data for each athlete is used to generate new information.</p>
 <p>Questions:</p>
@@ -1024,7 +1028,7 @@ if (outputEl) {{
 <li><p>Did the athlete change events?</p></li>
 <li><p>Did the athlete improve between the seasons?</p></li>
 </ul>
-<div class="section" id="athlete-changes-in-events">
+<section id="athlete-changes-in-events">
 <h3>Athlete changes in Events<a class="headerlink" href="#athlete-changes-in-events" title="Permalink to this headline">#</a></h3>
 <p><strong>Amount of events</strong></p>
 <p>To answer the question if an athlete has changed events it is checked first if the amount of events is equal between 2020 and 2021.</p>
@@ -1109,8 +1113,8 @@ The droped events are: []
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="improvement-between-seasons">
+</section>
+<section id="improvement-between-seasons">
 <h3>Improvement between seasons<a class="headerlink" href="#improvement-between-seasons" title="Permalink to this headline">#</a></h3>
 <p><strong>Preparing Data</strong></p>
 <p>To see improvement one can compare average times for an event and course. Therefore the following code generates a pandas dataframe with average times from mongoDB data.</p>
@@ -1359,9 +1363,9 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="additional-open-tasks">
+</section>
+</section>
+<section id="additional-open-tasks">
 <h2>Additional / Open Tasks<a class="headerlink" href="#additional-open-tasks" title="Permalink to this headline">#</a></h2>
 <p>It was planned to show the places where swim competitions took place. However, the used geopy module return strange results. For example Naples is in Italy and in South Africa. This result could be improved with further feature engineering on the raw data.</p>
 <p>The following code block returns the map with flawed output. Please note that it is not optimized. It runs a little bit longer (4.5 minutes), partly because the RateLimiter has a delay of one second per request.</p>
@@ -5629,8 +5633,8 @@ if (outputEl) {{
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -5683,6 +5687,9 @@ if (outputEl) {{
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>

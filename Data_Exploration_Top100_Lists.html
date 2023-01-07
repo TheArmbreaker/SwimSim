@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Data Exploration Top 100 Lists &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -506,7 +510,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-exploration-top-100-lists">
+  <section class="tex2jax_ignore mathjax_ignore" id="data-exploration-top-100-lists">
 <h1>Data Exploration Top 100 Lists<a class="headerlink" href="#data-exploration-top-100-lists" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -608,7 +612,7 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
         </script>
 </div></div>
 </div>
-<div class="section" id="questions">
+<section id="questions">
 <h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a> provides Top100 lists for athletes separated into male and female as well as current and alltime. Those categories lead to the assumption that there are currently active athletes and some in-active athletes whos past performance are still outstanding in comparision to the currently active group.</p>
 <p><img alt="title" src="_images/SchwimmerTop100.png" /><br>(Source: <a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a>)</p>
@@ -619,8 +623,8 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 <li><p>Are there more male or female in-active alltimers?</p></li>
 <li><p>Which nationality do the athletes have?</p></li>
 </ul>
-</div>
-<div class="section" id="loading-data-from-sql">
+</section>
+<section id="loading-data-from-sql">
 <h2>Loading Data from SQL<a class="headerlink" href="#loading-data-from-sql" title="Permalink to this headline">#</a></h2>
 <p>Those questions are answered with the data stored in the sql database <em>swimmerData</em> which was introduced in the chapter on webscrapping.</p>
 <p>After loading the data from sql to a pandas dataframe an overview of unique values is generated with the function examine_unique_values. Note that this is not generated for the ids and names, because they are expected to be unique and therefore equal to the length of dataframe. Remark: Off course an actual overlap is assumed to show some code.</p>
@@ -773,8 +777,8 @@ values: [&#39;current&#39; &#39;alltime&#39;]
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="athletes-in-alltime-and-current">
+</section>
+<section id="athletes-in-alltime-and-current">
 <h2>Athletes in Alltime and Current<a class="headerlink" href="#athletes-in-alltime-and-current" title="Permalink to this headline">#</a></h2>
 <p>The overview provides us with following information:</p>
 <ul class="simple">
@@ -930,10 +934,10 @@ Answer: 114 athletes belong to the group of active Top100 and alltime Top100.
 <img alt="_images/Data_Exploration_Top100_Lists_10_0.png" src="_images/Data_Exploration_Top100_Lists_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="age-of-active-vs-inactive-athletes">
+</section>
+<section id="age-of-active-vs-inactive-athletes">
 <h2>Age of active vs inactive Athletes<a class="headerlink" href="#age-of-active-vs-inactive-athletes" title="Permalink to this headline">#</a></h2>
-<div class="section" id="preparation">
+<section id="preparation">
 <h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">#</a></h3>
 <p>Question: How old are in-active alltimers in comparision to active athletes?</p>
 <p>First the above shown missing value is droped and a df_clean is created as deep copy. Additionally the unique values are evaluated once more and the length of the dataframe should be equal to the 286 actual unique athletes minus the removed row with missing year of birth. Thus 285 rows are expected.</p>
@@ -1029,8 +1033,8 @@ memory usage: 17.8+ KB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="results-distribution-ages">
+</section>
+<section id="results-distribution-ages">
 <h3>Results Distribution Ages<a class="headerlink" href="#results-distribution-ages" title="Permalink to this headline">#</a></h3>
 <p>Calling the describe method on the groupby of time and age presents following values. The boxplot reveals even better that the distributions for ages of currently active and alltime athletes are different.</p>
 <p>The currently active athletes are on average younger than the athletes in the alltime list. Interestingly there is an alltime athlete with the age of 16 and this age should be considered currently active, because it is a age where swimming careers are starting to take off.</p>
@@ -1206,8 +1210,8 @@ Source: <a class="reference external" href="https://www.swimrankings.net">swimra
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;active&#39;] = np.where(df[&#39;age&#39;]&lt;34,True,False)
 </pre></div>
 </div>
-</div>
-<div class="section" id="age-of-female-and-male-athletes">
+</section>
+<section id="age-of-female-and-male-athletes">
 <h3>Age of female and male athletes<a class="headerlink" href="#age-of-female-and-male-athletes" title="Permalink to this headline">#</a></h3>
 <p>Due to above outcome the question on age difference for in-active athletes by gender cannot be answered without being biased.</p>
 <p>Instead following questions will not differ between the status. The new question is <strong>Distribution of age for female and male athletes.</strong></p>
@@ -1324,11 +1328,11 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="nationality-of-athletes">
+</section>
+</section>
+<section id="nationality-of-athletes">
 <h2>Nationality of Athletes<a class="headerlink" href="#nationality-of-athletes" title="Permalink to this headline">#</a></h2>
-<div class="section" id="distribution-of-age-by-nation">
+<section id="distribution-of-age-by-nation">
 <h3>Distribution of Age by Nation<a class="headerlink" href="#distribution-of-age-by-nation" title="Permalink to this headline">#</a></h3>
 <p>Below is a first overview on the age distributions of all nations. There are athletes being the only one in the top100 lists for his/her nation. Those values are excluded from the boxplot.
 The plot reveals that for Serbia athletes of the same age exist. Those are shown in the code block beneath the plot.</p>
@@ -1542,8 +1546,8 @@ if (outputEl) {{
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="count-of-athletes-by-nation">
+</section>
+<section id="count-of-athletes-by-nation">
 <h3>Count of Athletes by nation<a class="headerlink" href="#count-of-athletes-by-nation" title="Permalink to this headline">#</a></h3>
 <p>A bar plot might imparts the message a bit faster (compare Hichert’s <em>SUCCESS</em>-Rules), but maps can provide a huge benefit and how to plot them should be in every Data Scientists repertoire.</p>
 <p>In the following parts the data will be prepared for plotting in a map. This includes the examination of country codes, looking up polygons for the plot and engineering some features.</p>
@@ -2043,9 +2047,9 @@ A lambda function is applied to the original nation column with IOC codes.</p>
 
 &lt;/script&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2098,6 +2102,9 @@ A lambda function is applied to the original nation column with IOC codes.</p>
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>

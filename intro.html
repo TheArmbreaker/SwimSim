@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -432,13 +436,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>Coding Project for Python for Data Science
 by Markus Armbrecht.</p>
 <p>The overall objective is to present coding skills in Python in the context of an project. Additional Data Science environments are optional but benefitial (e.g. SQL and mongoDB).</p>
 <hr class="docutils" />
-<div class="section" id="motivation">
+<section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
 <p>To gain knowledge in a large variaty of Data Science technologies, following bulletpoints are used as technology objectives.</p>
 <ul class="simple">
@@ -452,42 +456,40 @@ by Markus Armbrecht.</p>
 <li><p>Plotting with Matplotlib, Folium and Plotly</p></li>
 <li><p>Understanding programming constrains in terms of Time Complexity</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="project-idea">
+<section id="project-idea">
 <h2>Project Idea<a class="headerlink" href="#project-idea" title="Permalink to this headline">#</a></h2>
 <p>In order to achieve the technology objectives the Use Case should not be answered by existing datasets and an adequat approch for object oriented programming had to be found.</p>
 <p>I am a swimming enthusiast and always wanted to work in a sport analytics context. From time to time one can read about athletes not participating in competitions because of injuries or other random influences on performance.</p>
-<div class="section" id="background-gina-lueckenkemper">
+<section id="background-gina-lueckenkemper">
 <h3>Background Gina Lueckenkemper<a class="headerlink" href="#background-gina-lueckenkemper" title="Permalink to this headline">#</a></h3>
-<p>For example in an interview on the Youtube Channel from <a class="reference external" href="https://youtu.be/2HR6FPdYYMw">Suttgarter Zeitung &amp; Suttgarter Nachrichten (2018)</a> Gina Lueckenkemper, a German sprinter and meanwhile European Champion, speaks about unexpected long travel time to tournaments - 14 hours instead of 5 hours - and other influences on consistent performance.
+<p>For example in an interview on the Youtube Channel from <a class="reference external" href="https://youtu.be/2HR6FPdYYMw">Stuttgarter Zeitung &amp; Stuttgarter Nachrichten (2018)</a> Gina Lueckenkemper, a German sprinter and meanwhile European Champion, speaks about unexpected long travel time to tournaments - 14 hours instead of 5 hours - and other influences on consistent performance.
 Additionally following sentence once was said, according to an not very reliable source, but I know equal statements from her podcasts and other interviews.</p>
 <blockquote>
 <div><p>“Ich habe immer Probleme mit den Matratzen. Die sind weich und ziemlich durchgelegen. Mein Rücken ist da eh etwas empfindlich. Ich gehe jeden Tag zum Chiropraktiker, dann geht das wieder.“ (Gina Lueckenkemper according to <a class="reference external" href="https://www.bild.de/sport/mehr-sport/sport-mix/leichtathletik-wm-gina-hat-ein-matratzen-problem-80738596.bild.html">bild.de: 2022</a>)</p>
 </div></blockquote>
-</div>
-<div class="section" id="background-kathleen-baker">
+</section>
+<section id="background-kathleen-baker">
 <h3>Background Kathleen Baker<a class="headerlink" href="#background-kathleen-baker" title="Permalink to this headline">#</a></h3>
 <p>In terms of swimming I know about the crohn’s disease background from Kathleen Baker, former world-record holder in 100m backstroke and 4x100m medley relay.</p>
 <p>Crohn’s disease is not yet fully understood by medicine. There can be triggers in the immune system as well environmental factors. Therefore the occurence of bad days due to crohn’s disease can be seen as random by some degree <a class="reference external" href="https://www.webmd.com/ibd-crohns-disease/crohns-disease/crohns-disease-causes">(webmd.com: 2022)</a>. An athlete has to travel a lot and traveling could also be a trigger <a class="reference external" href="https://www.dccv.de/betroffene-angehoerige/leben-mit-einer-ced/reisen/">(dccv.de: 2020)</a>.</p>
 <blockquote>
 <div><p>“I definitely think it’s challenging and most people don’t have to deal with a chronic disease while trying to make an Olympic team.” (Kathleen Baker according to <a class="reference external" href="https://olympics.com/en/news/kathleen-baker-crohns-disease-made-me-strong-swimming">olympics.com: 2021</a>)</p>
 </div></blockquote>
-</div>
-<div class="section" id="monte-carlo-simulation">
+</section>
+<section id="monte-carlo-simulation">
 <h3>Monte-Carlo-Simulation<a class="headerlink" href="#monte-carlo-simulation" title="Permalink to this headline">#</a></h3>
 <p>This background led to the idea of programming the structure for a <strong>Monte-Carlo-Simulation</strong> and to predict an athlete’s probability of winning a race when injured or not. During the chapter, this question will be adapted to other scenarios like chances to get on the winners’ podium. Furthermore the term <em>injured</em> is interpreted as any kind of issue at the moment of the race.</p>
 <p>The website <a class="reference external" href="https://www.swimrankings.net">www.swimrankings.net</a> provides data on swimming athletes all over the world and will be the data source for this project. Between webscrapping and Monte-Carlo-Simulation the Data Exploration is done to get an idea of the data, even if the structures are set when scrapping.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="miscellaneous">
+<section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">#</a></h2>
 <p>This Readme File is planned to be the frontpage of a jupyter book. However, .py-Files are not displayed in jupyter books. To counter this, the .py-Files are separately presented in additional jupyter notebooks, while actual .py-Files are imported in the other jupyter notebooks.</p>
 <p>Some parts used the mathematical notation with $-symbols. Unfortunately this interfers with plotly plots in jupyter-book <a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html">(jupyterbook.org: 2022)</a>. Therefore mathematical notation is dismissed or moved to chapters without plotly plots. This was in such short notice that some operations could seem unnecessary, because originally the Simulation was in one notebook. The code was re-run after the split and works as shown.</p>
-<hr class="docutils" />
-<p>Icon by <a class="reference external" href="https://icons8.com">Icons8</a>.</p>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -496,7 +498,7 @@ Additionally following sentence once was said, according to an not very reliable
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -542,6 +544,9 @@ Additionally following sentence once was said, according to an not very reliable
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>

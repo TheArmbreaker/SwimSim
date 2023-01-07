@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to Simulation &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -506,7 +510,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-simulation">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-simulation">
 <h1>Introduction to Simulation<a class="headerlink" href="#introduction-to-simulation" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,13 +634,13 @@ e.exports=function(t){return null!=t&&(n(t)||function(t){return"function"==typeo
 </div>
 </div>
 </div>
-<div class="section" id="general-thoughts">
+<section id="general-thoughts">
 <h2>General Thoughts<a class="headerlink" href="#general-thoughts" title="Permalink to this headline">#</a></h2>
 <p>Usually eight athletes compete for Gold in a swim race. Thus the probability of any athlete winning gold is 1/8.</p>
 <p>However the probability of an athlete winning gold is not totaly random. It is more based on an athletes’ performance, training status and health.
 Thinking of swimmers as machines without gut feeling, sleeping issues or whatsoever, and those machines beeing on the same performance level, would support the 1/8 probability of winning first place in a race. Actually every swimmer has his own unique abilities in dealing with stress and competitivness as well as own training concepts. Therefore each swimmer has to be evaluated on his own. But how can one determine the probability of an athlete winning first place?</p>
 <p>Unfortunately we cannot let the athlete race an infinite time to get enough samples for a valid statement. This lag of data (one race = one sample outcome) and the randomness in events like bad sleep, injuries or other factors can be approached with a Monte-Carlo-Simulation. This is a technique to predict probability of an uncertain event due to randomness.</p>
-<div class="section" id="assumptions-for-simulation">
+<section id="assumptions-for-simulation">
 <h3>Assumptions for Simulation<a class="headerlink" href="#assumptions-for-simulation" title="Permalink to this headline">#</a></h3>
 <p>Thus Monte-Carlo-Simulation is an approach to predict outcome of races. But what data can be feed to the simulation?</p>
 <p>In order to predict the outcome the past performance is utilized. Usually every athlete has his/her personal best time and one can say that the athlete with the smallest best time is the favorite for first place. However, this project uses the normal distribution, which is know to be very common in nature. This means from the data a normal distribution between the min and max value is assumed, which leads to additional assumptions as follows.</p>
@@ -714,8 +718,8 @@ athlete_mid2: [49.04 49.7  49.52 49.08 49.4  49.92 49.91 48.87 48.59 50.09 50.21
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="generate-normal-distributions">
+</section>
+<section id="generate-normal-distributions">
 <h3>Generate normal distributions<a class="headerlink" href="#generate-normal-distributions" title="Permalink to this headline">#</a></h3>
 <p>Using numpy.random.normal it is possible to generate an normal distribution based on the sample data from above. Creating an array of 15000 values for each athlete returns following plot. It shows that red, yellow and blue might have a chance against each other, with red still being the favorite. Unfortunately in this simulation context there are no prices to be won by green, when competing against red, yellow and blue.</p>
 <p><em><strong>Important disclaimer</strong></em></p>
@@ -767,8 +771,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-<div class="section" id="examine-conflict-between-asumptions-and-normal-distributions">
+</section>
+<section id="examine-conflict-between-asumptions-and-normal-distributions">
 <h3>Examine Conflict between Asumptions and Normal Distributions<a class="headerlink" href="#examine-conflict-between-asumptions-and-normal-distributions" title="Permalink to this headline">#</a></h3>
 <p>More important is the fact that the plotted distributions provide values outside of the min and max values, which is in conflict with the made assumptions.</p>
 <p><strong>No change in performance over time</strong></p>
@@ -777,8 +781,8 @@ if (outputEl) {{
 <p>The assumption that an athlete will not out- or underperform the min and max values was derived from the context that we only have data from swim meets (so are competition events called). Thus it is not know if an athlete swam a better or slower time compared to his training activities. Thanks to the normal distribtion overlapping the min and max values, this assumption can be softened in the way that an athlete can out- or underperform but this does not have to be the full picture due to missing data on training times. Without the training data it is not possible to say if an athlete is out- or underperforming training time distributions.</p>
 <p><strong>No Age Groups</strong></p>
 <p>The assumption that all athletes are allowed to compete against each other despite being in different age groups is madeup because I forgot to explore this in Data Exploration. Such subgroups could be generated when the required data from the sql database gets loaded later in this notebook.</p>
-</div>
-<div class="section" id="utilizing-normal-distributions">
+</section>
+<section id="utilizing-normal-distributions">
 <h3>Utilizing normal distributions<a class="headerlink" href="#utilizing-normal-distributions" title="Permalink to this headline">#</a></h3>
 <p>So far we have a method to return normal distributed values in our simulation. But it is still possible to derive the answer via other statistically tests. Looking at above graph one could expect that in a race of those four athletes the red athlete will have the highest probability of winning.</p>
 <p>To satisfy the randomness in the Monto-Carlo-Simulation the introduced idea of an athlete feeling unwell, being injured or stress is applied. In the simulation this will be achieved with madeup values, assuming the probability of swimming injured being 50 %. At this point <em>injured</em> stands for any imaginable disadvantage. It is assumed that the injury will change the min value to the mean value of the distribution.</p>
@@ -823,8 +827,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</div>
-<div class="section" id="introduction-of-classes">
+</section>
+<section id="introduction-of-classes">
 <h3>Introduction of classes<a class="headerlink" href="#introduction-of-classes" title="Permalink to this headline">#</a></h3>
 <p>As the Data Exploration showed, the 100m Freestyle events are most favoured by athlets. Thus there are the most distributions in form of athletes. To perform the Simulation of 100m Freestyle races on 50m course the required data is load from mongoDB database during initialization of on object from the class athlete.<br>
 <em>Notice that this class is imported from the file <strong><a class="reference external" href="http://myclasses.py">myclasses.py</a></strong> The class is separately discussed in the chapter <strong>File MyClasses</strong> of this jupyter book.</em></p>
@@ -833,8 +837,8 @@ if (outputEl) {{
 Those methods will be heavily used in the simulation and therefore were slightly described above. There are other methods like get_name() and get_id() which are discribbed in the <em>File MyClasses</em> Chapter.</p>
 <p><strong>Imperfect Athlete Class</strong></p>
 <p>The class <em>imperfect</em> athlete is a child class from the athlete class. It is used to simulate different behavior when the earlier described injured condition has to be evaluated. This enables to run the simulation with or without the randomness of injury. Additionally to the athlete class methods there is the tracking systems of placement when injured and a swim method which returns a single value based on discussed probability of 50 % for being injured.</p>
-</div>
-<div class="section" id="preparing-athlete-objects-data">
+</section>
+<section id="preparing-athlete-objects-data">
 <h3>Preparing Athlete objects’ data<a class="headerlink" href="#preparing-athlete-objects-data" title="Permalink to this headline">#</a></h3>
 <p><strong>Names and IDs</strong></p>
 <p>In the Data Exploration it was shown that the performance of male and female is distinguished by points for time. Even though the distributions overlap in the middle the “best” female will never win against the “best” male in this simulation. Therefore the data for male and female athletes is loaded into two different dataframes and each row transfered into a list.</p>
@@ -902,9 +906,9 @@ By loading 100m Freestyle Lap the sample will be enriched with a view more data 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="perform-simulation">
+</section>
+</section>
+<section id="perform-simulation">
 <h2>Perform Simulation<a class="headerlink" href="#perform-simulation" title="Permalink to this headline">#</a></h2>
 <p>The next two code blocks will perform the simulation.</p>
 <p>The function simulation will call further functions as described in the docstrings.</p>
@@ -1237,7 +1241,7 @@ WALSH, Alexandra
 </div>
 </div>
 </div>
-<div class="section" id="interpreting-simulation-results">
+<section id="interpreting-simulation-results">
 <h3>Interpreting Simulation Results<a class="headerlink" href="#interpreting-simulation-results" title="Permalink to this headline">#</a></h3>
 <p>Each simulation is performing 10.000 races, which is a large amount of sample races.</p>
 <p>Above plots show the probability of an athlete winning a race. Due to code design above code blocks can be triggered and return a different result everytime. Therefore a screenshot will be used for further discussion.</p>
@@ -1247,8 +1251,8 @@ Despite being the favorite the simulation does not return the highest probabilit
 Instead both athletes will be analysed in detail, to explain self-fulfilling prophecy due to the desginflaw in asking for the probability of winning a race.</p>
 <p>Furthermore the screenshot shows high values even though the athletes where injured. This comes from the uniform distribution with a 50 % probability for injury and to be fair, a really small influence by moving the min value to the mean. Indicationg an underestimated influence of the injuries.</p>
 <p><img alt="title" src="_images/example_simulation_favorite_notFirst.png" /></p>
-</div>
-<div class="section" id="comparing-top-athlets">
+</section>
+<section id="comparing-top-athlets">
 <h3>Comparing Top Athlets<a class="headerlink" href="#comparing-top-athlets" title="Permalink to this headline">#</a></h3>
 <p>In order to analyse Grinev and Popovici the distributions are plotted below. Additionally the mean, min and max values are printed.</p>
 <p>The plot shows continuous and doted lines. Continuous lines are for the actual distribution. Doted lines represent the distribution for injuries.</p>
@@ -1357,9 +1361,9 @@ if (outputEl) {{
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1412,6 +1416,9 @@ if (outputEl) {{
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>

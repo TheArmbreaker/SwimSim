@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Acquiring Data &#8212; Swim Athlete Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -34,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -536,9 +540,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="acquiring-data">
+  <section class="tex2jax_ignore mathjax_ignore" id="acquiring-data">
 <h1>Acquiring Data<a class="headerlink" href="#acquiring-data" title="Permalink to this headline">#</a></h1>
-<div class="section" id="general-thoughts-on-ethics-of-webscrapping">
+<section id="general-thoughts-on-ethics-of-webscrapping">
 <h2>General thoughts on ethics of webscrapping<a class="headerlink" href="#general-thoughts-on-ethics-of-webscrapping" title="Permalink to this headline">#</a></h2>
 <p>In this chapter a website called <a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a> is scrapped.</p>
 <p>Web crawlers or scrapping are boon and bane for website operators. On the one hand they need crawlers - especially Google’s - to search and classify the websites’ content. On the other hand webscrapping leads to increased website traffic and thus increased costs for operators. The robots.txt for <a class="reference external" href="http://swimrankings.net">swimrankings.net</a> blocks crawlers who are not from Google. And they have scrapping protection in place. The screenshot shows that an empty page was returned, after I accidentaly run the code cell and a lot of requests in short time where send to the websites host.</p>
@@ -583,10 +587,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="basic-data-for-top-100-athletes">
+</section>
+<section id="basic-data-for-top-100-athletes">
 <h2>Basic Data for Top 100 Athletes<a class="headerlink" href="#basic-data-for-top-100-athletes" title="Permalink to this headline">#</a></h2>
-<div class="section" id="prepartion">
+<section id="prepartion">
 <h3>Prepartion<a class="headerlink" href="#prepartion" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://www.swimrankings.net/">swimrankings.net</a> provides an overview of Top 100 currently activeathletes as well as Top 100 alltime athletes - each for male and female athletes.
 The screenshot shows a part of the websites’ menu. Each of the Top100 websites will be scrapped separately. Therefore a list with links is initiated below.</p>
@@ -601,8 +605,8 @@ The screenshot shows a part of the websites’ menu. Each of the Top100 websites
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="scrapping-top-100-lists">
+</section>
+<section id="scrapping-top-100-lists">
 <h3>Scrapping Top 100 Lists<a class="headerlink" href="#scrapping-top-100-lists" title="Permalink to this headline">#</a></h3>
 <p>In the following code block the above mentioned lists is scrapped with BeautifulSoup bs4.
 Each link to a Top 100 list will be requested from the server only once and the text will be parsed for html code.</p>
@@ -704,8 +708,8 @@ Top 100 Women (alltime)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="store-scrapped-data">
+</section>
+<section id="store-scrapped-data">
 <h3>Store scrapped data<a class="headerlink" href="#store-scrapped-data" title="Permalink to this headline">#</a></h3>
 <p>In the following a Dataframe will be generated from the swimmerList. It will be saved to a csv-file in order to prevent data lose and/or performing another scrapping. For a quick overview and doublecheck the head of the dataframe is returned.</p>
 <p>Additionally the data will be stored in a sql database with help of the sql alchemy module. Furthermore the data will be loaded from the sql database into a pandas dataframe. Each of those steps uses functions designed to be used in other context within a .py-file. For the notebooks on <em>Data Exploration</em> and <em>Simulation</em> this provides the benefit of requesting only needed data via SQL statements rather than loading the whole dataset.</p>
@@ -837,11 +841,11 @@ Top 100 Women (alltime)
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="webscrapping-athlete-s-performance-data">
+</section>
+</section>
+<section id="webscrapping-athlete-s-performance-data">
 <h2>Webscrapping Athlete’s Performance Data<a class="headerlink" href="#webscrapping-athlete-s-performance-data" title="Permalink to this headline">#</a></h2>
-<div class="section" id="preparation">
+<section id="preparation">
 <h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">#</a></h3>
 <p>For each of the currently active athletes in above Top 100 lists the specific performance in 2020 and 2021 is scrapped.</p>
 <p><a class="reference external" href="https://www.swimrankings.net">swimrankings.net</a> provides data for all results in a specific year for each athlete. The athlete is identified by the id which was scrapped from the Top 100 lists. To get those ids an pandas dataframe is created with an sql query. At the moment a dataframe is created and the id-column transfered to a list. This could be changed to a query selecting only the ids.</p>
@@ -941,8 +945,8 @@ Each function has a doc string with further information.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="scrapping">
+</section>
+<section id="scrapping">
 <h3>Scrapping<a class="headerlink" href="#scrapping" title="Permalink to this headline">#</a></h3>
 <p>Below code block is the actual scrapping code which calls above presented functions.</p>
 <p><strong>Outer For-Loop:</strong> The outer for-loop is iterating through the list of wanted seasons (years).</p>
@@ -1007,8 +1011,8 @@ Example for Dict Structure with an athlete id for season 2020 and only once swim
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="failed-url-request">
+</section>
+<section id="failed-url-request">
 <h3>Failed URL request<a class="headerlink" href="#failed-url-request" title="Permalink to this headline">#</a></h3>
 <p>Unfortunately the print statement from the webscrapping code block got lost when cells where joined. It was 399, thus one athlete’s information was not scrapped. However, below a list with unsuccesfully requested links is returned. This link was evaluated manually and afterwards appended to to the swimmerPerfList with a function call. Additionally the last element of swimPerfList was returned for double check. It shows that the missed id was successfully appended. Additionally it shows an example for above described data structure.</p>
 <div class="cell docutils container">
@@ -1124,8 +1128,8 @@ Example for Dict Structure with an athlete id for season 2020 and only once swim
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="backup-scrapped-data">
+</section>
+<section id="backup-scrapped-data">
 <h3>Backup Scrapped Data<a class="headerlink" href="#backup-scrapped-data" title="Permalink to this headline">#</a></h3>
 <p>The swimPerfList object is stored in a json-file backup. This provides the oppertunity to work with the data without the need of a second scrapping run in case of data lose. The code is commented out to prevent changes to the backup.</p>
 <div class="cell docutils container">
@@ -1144,8 +1148,8 @@ Example for Dict Structure with an athlete id for season 2020 and only once swim
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="empty-dicts-in-scrapped-data">
+</section>
+<section id="empty-dicts-in-scrapped-data">
 <h3>Empty Dicts in Scrapped Data<a class="headerlink" href="#empty-dicts-in-scrapped-data" title="Permalink to this headline">#</a></h3>
 <p>The scrapped data contains empty dictionaries, because for some athletes data for either 2020 or 2021 is not available. For e.g. the below screenshot shows an exceptional example where the years from 2013 until 2019 are missing. The athlete somehow became active after eight years or the seasons where not recorded.</p>
 <p>Before such data is loaded into the mongoDB database those empty dictionaries will be removed by following code block. The print statement beneath shows that 365 filled dictionaries exists. This means that from expected 400 entries (200 athletes * 2 seasons) there is no data for 35 athletes in at least one season.</p>
@@ -1210,9 +1214,9 @@ Example for Dict Structure with an athlete id for season 2020 and only once swim
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="insert-data-into-mongodb-database">
+</section>
+</section>
+<section id="insert-data-into-mongodb-database">
 <h2>Insert Data into MongoDB database<a class="headerlink" href="#insert-data-into-mongodb-database" title="Permalink to this headline">#</a></h2>
 <p>In this part the scrapped performance data is stored in a MongoDB. In comparision to above used sql database a mongoDB database is more adequate for the different amounts of events an athlete swims. For example not everybody is swimming 100m Freestyle, some athletes swim different styles like Breaststroke or Butterfly. Other Athletes swim longer or shorter distances. Even if the events are the same not every athlete is competing the same amount of times. Thus a table based database would have a lot of empty cells while taking up a lot of space and a mongoDB database should be favoured for such unstructered data.</p>
 <ol class="simple">
@@ -1316,8 +1320,8 @@ After: [&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;, 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="additional-learnings">
+</section>
+<section id="additional-learnings">
 <h2>Additional learnings<a class="headerlink" href="#additional-learnings" title="Permalink to this headline">#</a></h2>
 <p>Below code block shows a snippet that was used in first attempts of coding the webscrapper for performance data. One can see that instead of lxml the ‘html.parser’ was used. Somehow this parser returned code not as expected from examination in Google Chrome. Switching to lxml provided much cleaner code snippets for scrapping.</p>
 <ul class="simple">
@@ -1339,8 +1343,8 @@ After: [&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;, 
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1393,6 +1397,9 @@ After: [&#39;admin&#39;, &#39;config&#39;, &#39;fooddata&#39;, &#39;local&#39;, 
     By Markus Armbrecht<br/>
   
       &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div> Projektarbeit zu Python for Data Science<br> im Sommersemester 2022<br> <br> <a target="_blank" href="https://icons8.com/icon/3bhkNTEJ2zaD/swimming">Swimming</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> <br> <a href="https://github.com/TheArmbreaker" target="_blank"><img src="https://img.shields.io/badge/Github-Markus%20Armbrecht-orange" alt="Github Markus Armbrecht"></a> </div>
+    </div>
 </p>
         </footer>
     </div>
